@@ -1,0 +1,131 @@
+//INSERIR AQUI AS ALTERAÇÕES COM SQL
+
+create schema recrutamais;
+
+use recrutamais;
+
+CREATE TABLE cargos ( 
+
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+
+  nome VARCHAR(255) NOT NULL, 
+
+  descricao TEXT, 
+
+  salario DECIMAL(10,2) NOT NULL 
+
+); 
+
+CREATE TABLE funcionarios ( 
+
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+
+  nome VARCHAR(255) NOT NULL, 
+
+  cpf VARCHAR(11) NOT NULL, 
+
+  email VARCHAR(255) NOT NULL, 
+
+  telefone VARCHAR(20), 
+
+  data_nascimento DATE NOT NULL, 
+
+  endereco VARCHAR(255), 
+
+  cargo_id INT NOT NULL, 
+
+  FOREIGN KEY (cargo_id) REFERENCES cargos(id) 
+
+); 
+
+CREATE TABLE usuarios ( 
+
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+
+  username VARCHAR(255) NOT NULL, 
+
+  password VARCHAR(255) NOT NULL, 
+
+  funcionario_id INT NOT NULL, 
+
+  FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id) 
+
+); 
+
+
+//Adicionados Vinicius
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `rg` VARCHAR(45) NOT NULL AFTER `cargo_id`;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `genero` CHAR(2) NOT NULL AFTER `rg`;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `cep` VARCHAR(20) NOT NULL AFTER `genero`;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `educacao` VARCHAR(255) NOT NULL AFTER `cep`;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `status` VARCHAR(255) NOT NULL AFTER `educacao`;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `bairro` VARCHAR(255) NOT NULL AFTER `status`,
+CHANGE COLUMN `telefone` `telefone` VARCHAR(20) NOT NULL ,
+CHANGE COLUMN `endereco` `endereco` VARCHAR(255) NOT NULL ;
+
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD COLUMN `Cadastro` DATETIME NULL AFTER `bairro`,
+ADD COLUMN `CadastradoPor` VARCHAR(50) NULL AFTER `Cadastro`,
+ADD COLUMN `Edicao` DATETIME NULL AFTER `CadastradoPor`,
+ADD COLUMN `EditadoPor` VARCHAR(50) NULL AFTER `Edicao`,
+ADD COLUMN `timeStamp` DECIMAL(20,0) NOT NULL AFTER `EditadoPor`,
+ADD COLUMN `GuidStamp` CHAR(36) NOT NULL AFTER `timeStamp`,
+ADD UNIQUE INDEX `GuidStamp_UNIQUE` (`GuidStamp` ASC) VISIBLE;
+
+ALTER TABLE `recrutamais`.`cargos` 
+ADD COLUMN `Cadastro` DATETIME NULL AFTER `salario`,
+ADD COLUMN `CadastradoPor` VARCHAR(50) NULL AFTER `Cadastro`,
+ADD COLUMN `Edicao` DATETIME NULL AFTER `CadastradoPor`,
+ADD COLUMN `EditadoPor` VARCHAR(50) NULL AFTER `Edicao`,
+ADD COLUMN `timeStamp` DECIMAL(20,0) NOT NULL AFTER `EditadoPor`,
+ADD COLUMN `GuidStamp` CHAR(36) NOT NULL AFTER `timeStamp`,
+ADD UNIQUE INDEX `GuidStamp_UNIQUE` (`GuidStamp` ASC) VISIBLE;
+
+ALTER TABLE `recrutamais`.`usuarios` 
+ADD COLUMN `Cadastro` DATETIME NULL AFTER `funcionario_id`,
+ADD COLUMN `CadastradoPor` VARCHAR(50) NULL AFTER `Cadastro`,
+ADD COLUMN `Edicao` DATETIME NULL AFTER `CadastradoPor`,
+ADD COLUMN `EditadoPor` VARCHAR(50) NULL AFTER `Edicao`,
+ADD COLUMN `timeStamp` DECIMAL(20,0) NOT NULL AFTER `EditadoPor`,
+ADD COLUMN `GuidStamp` CHAR(36) NOT NULL AFTER `timeStamp`,
+ADD UNIQUE INDEX `GuidStamp_UNIQUE` (`GuidStamp` ASC) VISIBLE;
+
+ALTER TABLE `recrutamais`.`cargos` 
+CHANGE COLUMN `id` `cargoId` INT NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+DROP FOREIGN KEY `funcionarios_ibfk_1`;
+ALTER TABLE `recrutamais`.`funcionarios` 
+CHANGE COLUMN `cargo_id` `cargoId` INT NOT NULL ;
+ALTER TABLE `recrutamais`.`funcionarios` 
+ADD CONSTRAINT `funcionarios_ibfk_1`
+  FOREIGN KEY (`cargoId`)
+  REFERENCES `recrutamais`.`cargos` (`cargoId`);
+
+ALTER TABLE `recrutamais`.`funcionarios` 
+CHANGE COLUMN `id` `funcionarioId` INT NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `recrutamais`.`usuarios` 
+DROP FOREIGN KEY `usuarios_ibfk_1`;
+ALTER TABLE `recrutamais`.`usuarios` 
+CHANGE COLUMN `funcionario_id` `funcionarioId` INT NOT NULL ;
+ALTER TABLE `recrutamais`.`usuarios` 
+ADD CONSTRAINT `usuarios_ibfk_1`
+  FOREIGN KEY (`funcionarioId`)
+  REFERENCES `recrutamais`.`funcionarios` (`funcionarioId`);
+
+ALTER TABLE `recrutamais`.`usuarios` 
+CHANGE COLUMN `id` `usuarioId` INT NOT NULL AUTO_INCREMENT ;
