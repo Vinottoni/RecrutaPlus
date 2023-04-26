@@ -1,17 +1,19 @@
-﻿using System;
+﻿using RecrutaPlus.Application.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace RecrutaPlus.Application.ViewModels
+namespace RecrutaPlus.Application.Filters
 {
-    public class EmployeeViewModel
+    public class EmployeeFilterViewModel
     {
         [Display(Name = "Código")]
-        public int funcionarioId { get; set; }
+        public int? funcionarioId { get; set; }
 
         [Display(Name = "Nome")]
         public string nome { get; set; }
@@ -29,7 +31,7 @@ namespace RecrutaPlus.Application.ViewModels
         public string telefone { get; set; }
 
         [Display(Name = "Data de Nascimento")]
-        public DateOnly dataNascimento { get; set; }
+        public DateOnly? dataNascimento { get; set; }
 
         [Display(Name = "Gênero")]
         public string genero { get; set; }
@@ -50,15 +52,14 @@ namespace RecrutaPlus.Application.ViewModels
         public string status { get; set; }
 
         //Default
-        public DateTime Cadastro { get; set; }
+        public DateTime? Cadastro { get; set; }
         public string CadastradoPor { get; set; }
-        public DateTime Edicao { get; set; }
+        public DateTime? Edicao { get; set; }
         public string EditadoPor { get; set; }
-        public long VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
-        public Guid GuidStamp { get; set; }
+        public long? VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
+        public Guid? GuidStamp { get; set; }
 
-        [JsonIgnore]
+
         public virtual IList<OfficeViewModel> OfficeViewModels { get; set; }
-
     }
 }

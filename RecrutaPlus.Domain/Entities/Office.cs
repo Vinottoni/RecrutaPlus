@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using RecrutaPlus.Domain.Validators;
 
-
-namespace RecrutaPlus.Application.ViewModels
+namespace RecrutaPlus.Domain.Entities
 {
-    public class OfficeViewModel
+    public class Office : Entity
     {
-        [Display(Name = "Código")]
         public int cargoId { get; set; }
 
-        [Display(Name = "Nome")]
         public string nome { get; set; }
 
-        [Display(Name = "Descrição")]
         public string descricao { get; set; }
 
-        [Display(Name = "Salário")]
         public decimal salario { get; set; }
+
 
         //Default
         public DateTime Cadastro { get; set; }
@@ -28,6 +21,13 @@ namespace RecrutaPlus.Application.ViewModels
         public DateTime Edicao { get; set; }
         public string EditadoPor { get; set; }
         public long VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
+        [NotMapped]
         public Guid GuidStamp { get; set; }
+
+        public override bool IsValid() //Aqui ainda tem refências para criar em Services
+        {
+            ValidationResult = new OfficeValidator().Validate(this);
+            return ValidationResult.IsValid;
+        }
     }
 }

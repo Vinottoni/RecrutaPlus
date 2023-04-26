@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using System.Text.Json.Serialization;
 
 namespace RecrutaPlus.Application.ViewModels
 {
@@ -13,15 +13,10 @@ namespace RecrutaPlus.Application.ViewModels
         [Display(Name = "Código")]
         public int usuarioId { get; set; }
 
-        [Display(Name = "FuncionarioId")]
-        public int funcionarioId { get; set; }
-
         [Display(Name = "Nome do Usuário")]
-        [Required]
         public string username { get; set; }
 
         [Display(Name = "Senha")]
-        [Required]
         public string password { get; set; }
 
         //Default
@@ -29,7 +24,11 @@ namespace RecrutaPlus.Application.ViewModels
         public string CadastradoPor { get; set; }
         public DateTime Edicao { get; set; }
         public string EditadoPor { get; set; }
-        public byte[] VersionStamp { get; set; }
+        public long VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
         public Guid GuidStamp { get; set; }
+
+        [JsonIgnore]
+        public virtual IList<EmployeeViewModel> Employees { get; set; }
+
     }
 }
