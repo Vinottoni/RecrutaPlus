@@ -1,13 +1,13 @@
 ﻿namespace RecrutaPlus.Infra.Data
 {
-    public struct AppDataSettingsConfigutarionConst
+    public struct AppDataSettingsConfigurationConst
     {
         //Settings
         public static string AppSettings => "appSettings";
 
         //DbProviderFactory
-        public static string DBProviderFactoryType => "DBProviderFactoryType";
-        public static string DBProviderFactoryName => "DBProviderFactoryName";
+        public static string DbProviderFactoryType => "DBProviderFactoryType";
+        public static string DbProviderFactoryName => "DBProviderFactoryName";
         public static string ConnectionStringDefault => "ConnectionStringDefault";
 
         //DbProviderFactory Integration
