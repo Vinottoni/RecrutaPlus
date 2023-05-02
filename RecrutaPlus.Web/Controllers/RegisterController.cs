@@ -22,6 +22,14 @@ namespace RecrutaPlus.Web.Controllers
             return View(registerViewModel);
         }
 
+        public IActionResult Create()
+        {
+            RegisterViewModel registerViewModel = new RegisterViewModel();
+
+
+            return View(registerViewModel);
+        }
+
         public IActionResult Privacy()
         {
             return View();

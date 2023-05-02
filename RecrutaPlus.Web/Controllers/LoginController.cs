@@ -22,5 +22,13 @@ namespace RecrutaPlus.Web.Controllers
             return View(loginViewModel);
         }
 
+        public IActionResult Logout()
+        {
+            LoginViewModel loginViewModel = new LoginViewModel();
+
+
+            return View(loginViewModel);
+        }
+
     }
 }

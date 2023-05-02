@@ -31,6 +31,11 @@
       "provider": "cdnjs",
       "library": "bootstrap@5.2.3",
       "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "Chart.js@4.3.0",
+      "destination": "wwwroot/lib/chartjs/"
     }
 
   ]
