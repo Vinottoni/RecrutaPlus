@@ -52,6 +52,10 @@ body {
     border-radius: 15px !important;
 }
 
+.card-body-custom {
+    flex-wrap:wrap !important;
+}
+
 .card-background {
     background-color: var(--color-nero) !important;
     border: 1px solid var(--color-nero) !important;
