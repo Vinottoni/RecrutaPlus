@@ -129,6 +129,9 @@
   <data name="EDIT" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="MSG_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>Registro salvo com sucesso</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Salvar</value>
   </data>

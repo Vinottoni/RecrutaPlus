@@ -22,7 +22,7 @@ namespace RecrutaPlus.Domain.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class EmployeeResource {
+    public class EmployeeResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RecrutaPlus.Domain.Resources {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RecrutaPlus.Domain.Resources.EmployeeResource", typeof(EmployeeResource).Assembly);
@@ -51,7 +51,7 @@ namespace RecrutaPlus.Domain.Resources {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Cancelar.
         /// </summary>
-        internal static string CANCEL {
+        public static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Novo.
         /// </summary>
-        internal static string CREATE {
+        public static string CREATE {
             get {
                 return ResourceManager.GetString("CREATE", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Deletar.
         /// </summary>
-        internal static string DELETE {
+        public static string DELETE {
             get {
                 return ResourceManager.GetString("DELETE", resourceCulture);
             }
@@ -90,16 +90,25 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Editar.
         /// </summary>
-        internal static string EDIT {
+        public static string EDIT {
             get {
                 return ResourceManager.GetString("EDIT", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Registro salvo com sucesso.
+        /// </summary>
+        public static string MSG_SAVED_SUCCESSFULLY {
+            get {
+                return ResourceManager.GetString("MSG_SAVED_SUCCESSFULLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Salvar.
         /// </summary>
-        internal static string SAVE {
+        public static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
             }

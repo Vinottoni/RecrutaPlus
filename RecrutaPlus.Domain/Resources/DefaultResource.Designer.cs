@@ -22,7 +22,7 @@ namespace RecrutaPlus.Domain.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DefaultResource {
+    public class DefaultResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RecrutaPlus.Domain.Resources {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RecrutaPlus.Domain.Resources.DefaultResource", typeof(DefaultResource).Assembly);
@@ -51,7 +51,7 @@ namespace RecrutaPlus.Domain.Resources {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Alt.
         /// </summary>
-        internal static string ALT_LABEL {
+        public static string ALT_LABEL {
             get {
                 return ResourceManager.GetString("ALT_LABEL", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Altitude.
         /// </summary>
-        internal static string ALTITUDE_LABEL {
+        public static string ALTITUDE_LABEL {
             get {
                 return ResourceManager.GetString("ALTITUDE_LABEL", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Cancelar.
         /// </summary>
-        internal static string CANCEL {
+        public static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Configurações.
         /// </summary>
-        internal static string CONFIG {
+        public static string CONFIG {
             get {
                 return ResourceManager.GetString("CONFIG", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Novo.
         /// </summary>
-        internal static string CREATE {
+        public static string CREATE {
             get {
                 return ResourceManager.GetString("CREATE", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Português-BR.
         /// </summary>
-        internal static string CULTURE_INFO_PTBR {
+        public static string CULTURE_INFO_PTBR {
             get {
                 return ResourceManager.GetString("CULTURE_INFO_PTBR", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Excluir.
         /// </summary>
-        internal static string DELETE {
+        public static string DELETE {
             get {
                 return ResourceManager.GetString("DELETE", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Baixar.
         /// </summary>
-        internal static string DOWNLOAD {
+        public static string DOWNLOAD {
             get {
                 return ResourceManager.GetString("DOWNLOAD", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Baixar Tudo.
         /// </summary>
-        internal static string DOWNLOAD_ALL {
+        public static string DOWNLOAD_ALL {
             get {
                 return ResourceManager.GetString("DOWNLOAD_ALL", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Editar.
         /// </summary>
-        internal static string EDIT {
+        public static string EDIT {
             get {
                 return ResourceManager.GetString("EDIT", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Lat.
         /// </summary>
-        internal static string LAT_LABEL {
+        public static string LAT_LABEL {
             get {
                 return ResourceManager.GetString("LAT_LABEL", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Latitude.
         /// </summary>
-        internal static string LATITUTE_LABEL {
+        public static string LATITUTE_LABEL {
             get {
                 return ResourceManager.GetString("LATITUTE_LABEL", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Tamanho Compactado:.
         /// </summary>
-        internal static string LENGTH_COMPRESS_LABEL {
+        public static string LENGTH_COMPRESS_LABEL {
             get {
                 return ResourceManager.GetString("LENGTH_COMPRESS_LABEL", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Tamanho:.
         /// </summary>
-        internal static string LENGTH_LABEL {
+        public static string LENGTH_LABEL {
             get {
                 return ResourceManager.GetString("LENGTH_LABEL", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Long.
         /// </summary>
-        internal static string LONG_LABEL {
+        public static string LONG_LABEL {
             get {
                 return ResourceManager.GetString("LONG_LABEL", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Longitude.
         /// </summary>
-        internal static string LONGITUDE_LABEL {
+        public static string LONGITUDE_LABEL {
             get {
                 return ResourceManager.GetString("LONGITUDE_LABEL", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Faixa de valores inválido.
         /// </summary>
-        internal static string MGS_RANGE_VALUE_INVALID {
+        public static string MGS_RANGE_VALUE_INVALID {
             get {
                 return ResourceManager.GetString("MGS_RANGE_VALUE_INVALID", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Clique em sincronizar dados para obter as atualizações recentes.
         /// </summary>
-        internal static string MSG_ALERT_SYNC {
+        public static string MSG_ALERT_SYNC {
             get {
                 return ResourceManager.GetString("MSG_ALERT_SYNC", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sincronizando dados. Aguarde....
         /// </summary>
-        internal static string MSG_AWAIT {
+        public static string MSG_AWAIT {
             get {
                 return ResourceManager.GetString("MSG_AWAIT", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Baixar.
         /// </summary>
-        internal static string MSG_BAIXAR {
+        public static string MSG_BAIXAR {
             get {
                 return ResourceManager.GetString("MSG_BAIXAR", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados não sincronizados com o servidor. Sincronize os dados antes de efetuar o logout.
         /// </summary>
-        internal static string MSG_DADOS_NOT_SINC {
+        public static string MSG_DADOS_NOT_SINC {
             get {
                 return ResourceManager.GetString("MSG_DADOS_NOT_SINC", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados não sincronizados com o servidor. Sincronize os dados antes de efetuar o logout. Se continuar, todos os dados serão perdidos. Deseja continuar mesmo assim?.
         /// </summary>
-        internal static string MSG_DADOS_NOT_SINC_QUESTION {
+        public static string MSG_DADOS_NOT_SINC_QUESTION {
             get {
                 return ResourceManager.GetString("MSG_DADOS_NOT_SINC_QUESTION", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados não sincronizados com o servidor: empresa {0} e usuário {1}. Sincronize os dados logando com o usuário anterior. Se continuar, todos os dados serão perdidos. Deseja continuar mesmo assium?.
         /// </summary>
-        internal static string MSG_DADOS_NOT_SINC_USER_QUESTION {
+        public static string MSG_DADOS_NOT_SINC_USER_QUESTION {
             get {
                 return ResourceManager.GetString("MSG_DADOS_NOT_SINC_USER_QUESTION", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Deseja sincronizar os dados?.
         /// </summary>
-        internal static string MSG_DADOS_SINC {
+        public static string MSG_DADOS_SINC {
             get {
                 return ResourceManager.GetString("MSG_DADOS_SINC", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados sincronizados com sucesso.
         /// </summary>
-        internal static string MSG_DADOS_SINC_SUCCESS {
+        public static string MSG_DADOS_SINC_SUCCESS {
             get {
                 return ResourceManager.GetString("MSG_DADOS_SINC_SUCCESS", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Registro excluído com sucesso.
         /// </summary>
-        internal static string MSG_DELETED_SUCCESSFULLY {
+        public static string MSG_DELETED_SUCCESSFULLY {
             get {
                 return ResourceManager.GetString("MSG_DELETED_SUCCESSFULLY", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Exclusão não permitida.
         /// </summary>
-        internal static string MSG_DELETION_NOT_ALLOWED {
+        public static string MSG_DELETION_NOT_ALLOWED {
             get {
                 return ResourceManager.GetString("MSG_DELETION_NOT_ALLOWED", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados baixados com sucesso.
         /// </summary>
-        internal static string MSG_DOWN_SUCCESS {
+        public static string MSG_DOWN_SUCCESS {
             get {
                 return ResourceManager.GetString("MSG_DOWN_SUCCESS", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Girar.
         /// </summary>
-        internal static string MSG_GIRAR {
+        public static string MSG_GIRAR {
             get {
                 return ResourceManager.GetString("MSG_GIRAR", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O tamanho máximo do arquivo deve ser de {0} MB. Você escolheu um arquivo de {1}.
         /// </summary>
-        internal static string MSG_MAX_SIZE_FILE_EXCEEDED {
+        public static string MSG_MAX_SIZE_FILE_EXCEEDED {
             get {
                 return ResourceManager.GetString("MSG_MAX_SIZE_FILE_EXCEEDED", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O tamanho máximo de &apos;{PropertyName}&apos; deve ser de {MaxLength} caracteres.
         /// </summary>
-        internal static string MSG_MAXIMUM_LENGTH_EXCEEDED {
+        public static string MSG_MAXIMUM_LENGTH_EXCEEDED {
             get {
                 return ResourceManager.GetString("MSG_MAXIMUM_LENGTH_EXCEEDED", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Não.
         /// </summary>
-        internal static string MSG_NAO {
+        public static string MSG_NAO {
             get {
                 return ResourceManager.GetString("MSG_NAO", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sem acesso à internet.
         /// </summary>
-        internal static string MSG_NOT_NETWORKACCESS {
+        public static string MSG_NOT_NETWORKACCESS {
             get {
                 return ResourceManager.GetString("MSG_NOT_NETWORKACCESS", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Habilitar Modo Offline?.
         /// </summary>
-        internal static string MSG_OFFILE_MODE_ENABLE {
+        public static string MSG_OFFILE_MODE_ENABLE {
             get {
                 return ResourceManager.GetString("MSG_OFFILE_MODE_ENABLE", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Modo Offline Habilitado.
         /// </summary>
-        internal static string MSG_OFFLINE_MODE {
+        public static string MSG_OFFLINE_MODE {
             get {
                 return ResourceManager.GetString("MSG_OFFLINE_MODE", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Para trabalhar em modo offline deve efetuar uma sincronização completa.
         /// </summary>
-        internal static string MSG_OFFLINE_MODE_INFO {
+        public static string MSG_OFFLINE_MODE_INFO {
             get {
                 return ResourceManager.GetString("MSG_OFFLINE_MODE_INFO", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a OK.
         /// </summary>
-        internal static string MSG_OK {
+        public static string MSG_OK {
             get {
                 return ResourceManager.GetString("MSG_OK", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Senha inválida.
         /// </summary>
-        internal static string MSG_PASSWORD_WRONG {
+        public static string MSG_PASSWORD_WRONG {
             get {
                 return ResourceManager.GetString("MSG_PASSWORD_WRONG", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Permitir acesso à arquivos, fotos e galerias.
         /// </summary>
-        internal static string MSG_PERMISSIONS_MEDIA {
+        public static string MSG_PERMISSIONS_MEDIA {
             get {
                 return ResourceManager.GetString("MSG_PERMISSIONS_MEDIA", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Ocorreu um problema inesperado. Entre em contato com administrador.
         /// </summary>
-        internal static string MSG_PROBLEMA_INESPERADO {
+        public static string MSG_PROBLEMA_INESPERADO {
             get {
                 return ResourceManager.GetString("MSG_PROBLEMA_INESPERADO", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Processando aguarde....
         /// </summary>
-        internal static string MSG_PROCESSING_WAIT {
+        public static string MSG_PROCESSING_WAIT {
             get {
                 return ResourceManager.GetString("MSG_PROCESSING_WAIT", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Envio de dados pendente. Clique em enviar..
         /// </summary>
-        internal static string MSG_RECRUTA_PENDENCIA {
+        public static string MSG_RECRUTA_PENDENCIA {
             get {
                 return ResourceManager.GetString("MSG_RECRUTA_PENDENCIA", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Campo obrigatório.
         /// </summary>
-        internal static string MSG_REQUIRED {
+        public static string MSG_REQUIRED {
             get {
                 return ResourceManager.GetString("MSG_REQUIRED", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a *Campos Obrigatórios.
         /// </summary>
-        internal static string MSG_REQUIRED_FIELD_INFO {
+        public static string MSG_REQUIRED_FIELD_INFO {
             get {
                 return ResourceManager.GetString("MSG_REQUIRED_FIELD_INFO", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Falha ao salvar registro.
         /// </summary>
-        internal static string MSG_SAVED_FAILURE {
+        public static string MSG_SAVED_FAILURE {
             get {
                 return ResourceManager.GetString("MSG_SAVED_FAILURE", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Registro salvo com sucesso.
         /// </summary>
-        internal static string MSG_SAVED_SUCCESSFULLY {
+        public static string MSG_SAVED_SUCCESSFULLY {
             get {
                 return ResourceManager.GetString("MSG_SAVED_SUCCESSFULLY", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Selecionar.
         /// </summary>
-        internal static string MSG_SELECIONAR {
+        public static string MSG_SELECIONAR {
             get {
                 return ResourceManager.GetString("MSG_SELECIONAR", resourceCulture);
             }
@@ -486,7 +486,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Selecione....
         /// </summary>
-        internal static string MSG_SELECIONE {
+        public static string MSG_SELECIONE {
             get {
                 return ResourceManager.GetString("MSG_SELECIONE", resourceCulture);
             }
@@ -495,7 +495,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sim.
         /// </summary>
-        internal static string MSG_SIM {
+        public static string MSG_SIM {
             get {
                 return ResourceManager.GetString("MSG_SIM", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Registro atualizado com sucesso.
         /// </summary>
-        internal static string MSG_UPDATE_SUCCESSFULLY {
+        public static string MSG_UPDATE_SUCCESSFULLY {
             get {
                 return ResourceManager.GetString("MSG_UPDATE_SUCCESSFULLY", resourceCulture);
             }
@@ -513,7 +513,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Dados enviados com sucesso.
         /// </summary>
-        internal static string MSG_UPLOAD_SUCCESS {
+        public static string MSG_UPLOAD_SUCCESS {
             get {
                 return ResourceManager.GetString("MSG_UPLOAD_SUCCESS", resourceCulture);
             }
@@ -522,7 +522,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário ou senha inválidos.
         /// </summary>
-        internal static string MSG_USERNAME_PASSWORD_WRONG {
+        public static string MSG_USERNAME_PASSWORD_WRONG {
             get {
                 return ResourceManager.GetString("MSG_USERNAME_PASSWORD_WRONG", resourceCulture);
             }
@@ -531,7 +531,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Username não confere.
         /// </summary>
-        internal static string MSG_USERNAME_WRONG {
+        public static string MSG_USERNAME_WRONG {
             get {
                 return ResourceManager.GetString("MSG_USERNAME_WRONG", resourceCulture);
             }
@@ -540,7 +540,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Valor duplicado. Existe um registro com este valor.
         /// </summary>
-        internal static string MSG_VALOR_DUPLICADO {
+        public static string MSG_VALOR_DUPLICADO {
             get {
                 return ResourceManager.GetString("MSG_VALOR_DUPLICADO", resourceCulture);
             }
@@ -549,7 +549,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Aguarde....
         /// </summary>
-        internal static string MSG_WAIT {
+        public static string MSG_WAIT {
             get {
                 return ResourceManager.GetString("MSG_WAIT", resourceCulture);
             }
@@ -558,7 +558,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Salvar.
         /// </summary>
-        internal static string SAVE {
+        public static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
             }
@@ -567,7 +567,7 @@ namespace RecrutaPlus.Domain.Resources {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a RecrutaPlus.
         /// </summary>
-        internal static string TITLE {
+        public static string TITLE {
             get {
                 return ResourceManager.GetString("TITLE", resourceCulture);
             }

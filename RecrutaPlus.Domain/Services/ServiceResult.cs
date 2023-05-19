@@ -9,7 +9,7 @@ namespace RecrutaPlus.Domain.Services
         public ServiceResult() => Errors = new List<ServiceResultError>();
 
         public List<ServiceResultError> Errors { get; set; }
-        public bool HasError => Errors.Count > 0;
+        public bool HasErrors => Errors.Count > 0;
         public void AddError(string propertyName, string errorMessage) => Errors.Add(new ServiceResultError(propertyName, errorMessage));
         public void AddError(string errorMessage) => Errors.Add(new ServiceResultError(null, errorMessage));
         public void AddError(ServiceResultError error) => Errors.Add(error);
