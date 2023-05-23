@@ -11,6 +11,7 @@ namespace RecrutaPlus.Application.ViewModels
     public class EmployeeFilter
     {
         public int? funcionarioId { get; set; }
+        public int? cargoId { get; set; }
 
         public string nome { get; set; }
 
@@ -44,6 +45,9 @@ namespace RecrutaPlus.Application.ViewModels
         public long? VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
         public Guid? GuidStamp { get; set; }
 
+
+        public virtual OfficeFilter OfficeFilter { get; set; }
+        public virtual LoginFilter LoginFilter { get; set; }
         public virtual IList<OfficeFilter> OfficeViewModels { get; set; }
 
     }

@@ -24,6 +24,8 @@ namespace RecrutaPlus.Domain.Entities
         [NotMapped]
         public Guid GuidStamp { get; set; }
 
+        public virtual IList<Employee> Employees { get; set; }
+
         public override bool IsValid() //Aqui ainda tem refências para criar em Services
         {
             ValidationResult = new OfficeValidator().Validate(this);

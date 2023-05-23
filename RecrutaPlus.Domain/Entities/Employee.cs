@@ -8,6 +8,8 @@ namespace RecrutaPlus.Domain.Entities
     {
         public int funcionarioId { get; set; }
 
+        public int cargoId { get; set; }
+
         public string nome { get; set; }
 
         public string rg { get; set; }
@@ -42,7 +44,10 @@ namespace RecrutaPlus.Domain.Entities
         [NotMapped]
         public Guid GuidStamp { get; set; }
 
+        public virtual Office Office { get; set; }
+        public virtual Login Login { get; set; }
         public virtual IList<Office> Offices { get; set; }
+        public virtual IList<Login> Logins { get; set; }
 
         public override bool IsValid()  //Aqui ainda tem refências para criar em Services
         {

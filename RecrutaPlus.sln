@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecrutaPlus.Domain", "Recru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecrutaPlus.Application", "RecrutaPlus.Application\RecrutaPlus.Application.csproj", "{53DA4F58-30FB-430D-B228-AC7DBF1C04A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecrutaPlus.Infra.Data", "RecrutaPlus.Infra.Data\RecrutaPlus.Infra.Data.csproj", "{54A186B1-F55F-4D14-B802-955E001E4DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecrutaPlus.Infra.Data", "RecrutaPlus.Infra.Data\RecrutaPlus.Infra.Data.csproj", "{54A186B1-F55F-4D14-B802-955E001E4DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
