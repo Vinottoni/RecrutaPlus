@@ -38,10 +38,10 @@ namespace RecrutaPlus.Web.Controllers
 
         public IActionResult Index()
         {
-            RegisterViewModel registerViewModel = new RegisterViewModel();
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
 
-            return View(registerViewModel);
+            return View(employeeViewModel);
         }
 
         //public IActionResult Create()
@@ -58,20 +58,20 @@ namespace RecrutaPlus.Web.Controllers
 
             _logger.LogInformation(EmployeeConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            RegisterViewModel registerViewModel = await Task.Run(() => new RegisterViewModel());
+            EmployeeViewModel employeeViewModel = await Task.Run(() => new EmployeeViewModel());
 
-            return View(registerViewModel);
+            return View(employeeViewModel);
         }
 
         [Authorize(Policy = AuthorizationPolicyConst.REGISTER_CREATE)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Create(EmployeeViewModel employeeViewModel)
         {
             ViewBag.SelectListCargos = await Task.Run(() => SelectListCargos());
 
             //AutoMapper
-            var employee = _mapper.Map<RegisterViewModel, Employee>(registerViewModel);
+            var employee = _mapper.Map<EmployeeViewModel, Employee>(employeeViewModel);
 
             employee.Cadastro = DateTime.Now;
             employee.CadastradoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
@@ -87,7 +87,7 @@ namespace RecrutaPlus.Web.Controllers
 
                 serviceResult.ToModelStateDictionary(ModelState);
 
-                return View(registerViewModel);
+                return View(employeeViewModel);
             }
 
             _ = await _employeeService.SaveChangesAsync();

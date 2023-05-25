@@ -17,7 +17,9 @@ namespace RecrutaPlus.Web.Controllers
         public IActionResult Index()
         {
 
-            return View(Index);
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+
+            return View(employeeViewModel);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,31 @@
+﻿/* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --color-nero: #262626;
+    --color-dark-nero: #1e1e1e;
+    --color-yellowy-green: #A7D729;
+    --color-smoky: #5A5A5F;
+    --color-white: #FFFFFF;
+    --color-ghost: #B6B6BB;
+    --color-btn-active-light-blue: #C9F7F5;
+    --color-light-sea-green: #1BC5BD;
+    --color-sundown: #FFAEAE;
+    --color-red: #FF0000;
+    --color-bittersweet-error-mensagem: #FF5B5B;
+}
+
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh;
+    background-color: var(--color-dark-nero);
+}
+.background-login {
+    display: flex;
+    flex-direction: column !important;
+    height:100%;
+    width:100%;
+    background-image: src("../img/Background_login.svg");
+    background-repeat: no-repeat;
+}
