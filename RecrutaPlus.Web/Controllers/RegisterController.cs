@@ -19,29 +19,101 @@ using System.Text.Json.Serialization;
 
 namespace RecrutaPlus.Web.Controllers
 {
-    public class RegisterController : Controller
+    public class RegisterController : BaseController
     {
-        private readonly IMapper _mapper;
-        private readonly IAppLogger _logger;
         private readonly IEmployeeService _employeeService;
 
-        public RegisterController(IMapper mapper, IAppLogger logger, IEmployeeService employeeService)
+        public RegisterController(
+            IMapper mapper, 
+            IAppLogger logger, 
+            IEmployeeService employeeService) : base(logger, mapper)
         {
             _mapper = mapper;
             _logger = logger;
             _employeeService = employeeService;
         }
-        [TempData]
-        public string ErrorMessage { get; set; }
-        [TempData]
-        public string SuccessMessage { get; set; }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id, bool state = false)
         {
+            EmployeeSearch employeeSearch = new EmployeeSearch();
+            IEnumerable<Employee> employees = null;
+
+            if (!state)
+            {
+                TempData[DefaultConst.TEMPDATA_FILTERSTATE] = null;
+            }
+
+            if (!string.IsNullOrWhiteSpace(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString()))
+            {
+                employeeSearch = JsonSerializer.Deserialize<EmployeeSearch>(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString());
+                if (employeeSearch.HasFilter)
+                {
+                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+                }
+                else
+                {
+                    EmployeeFilter filter = _mapper.Map<EmployeeFilterViewModel, EmployeeFilter>(employeeSearch?.Filter);
+                    employees = await _employeeService.GetByFilterRelatedAsync(filter);
+                }
+
+                if (state)
+                {
+                    TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
+                }
+            }
+            else
+            {
+                if (id != null)
+                {
+                    Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+                    if (employee != null)
+                    {
+                        employees = new List<Employee>() { employee };
+                    }
+                }
+                else
+                {
+                    employeeSearch.TakeLast = int.MaxValue;
+                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+                }
+            }
+
+            List<EmployeeViewModel> employeeViewModels = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(employees).ToList();
+
+            employeeSearch.Itens = employeeViewModels;
+
             EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
+            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
-            return View(employeeViewModel);
+            return View(employeeSearch);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(EmployeeSearch employeeSearch)
+        {
+            IEnumerable<Employee> employees;
+
+            if (employeeSearch.HasFilter)
+            {
+                employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+            }
+            else
+            {
+                EmployeeFilter filter = _mapper.Map<EmployeeFilterViewModel, EmployeeFilter>(employeeSearch?.Filter);
+                employees = await _employeeService.GetByFilterRelatedAsync(filter);
+            }
+
+            List<EmployeeViewModel> employeeViewModels = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(employees).ToList();
+
+            employeeSearch.Itens = employeeViewModels;
+
+            TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
+
+            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+
+            return View(employeeSearch);
         }
 
         //public IActionResult Create()

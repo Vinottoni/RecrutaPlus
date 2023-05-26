@@ -2,15 +2,21 @@
 using Microsoft.AspNetCore.Mvc;
 using RecrutaPlus.Web.Models;
 using System.Diagnostics;
+using AutoMapper;
+using RecrutaPlus.Domain.Interfaces.Services;
+using RecrutaPlus.Domain.Interfaces;
 
 namespace RecrutaPlus.Web.Controllers
 {
-    public class SettingsController : Controller
+    public class SettingsController : BaseController
     {
-        private readonly ILogger<SettingsController> _logger;
+        //private readonly ILogger<SettingsController> _logger;
 
-        public SettingsController(ILogger<SettingsController> logger)
+        public SettingsController(
+            IMapper mapper,
+            IAppLogger logger) : base(logger, mapper)
         {
+            _mapper = mapper;
             _logger = logger;
         }
 

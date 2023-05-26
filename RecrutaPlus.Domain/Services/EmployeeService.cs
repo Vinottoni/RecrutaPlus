@@ -130,10 +130,10 @@ namespace RecrutaPlus.Domain.Services
             return await _employeeRepository.GetByQueryRelatedAsync(predicate);
         }
 
-        //public async Task<IEnumerable<Employee>> GetByFilterRelatedAsync(EmployeeFilter filter = null)
-        //{
-        //    return await _employeeRepository.GetByFilterRelatedAsync(filter);
-        //}
+        public async Task<IEnumerable<Employee>> GetByFilterRelatedAsync(EmployeeFilter filter = null)
+        {
+            return await _employeeRepository.GetByFilterRelatedAsync(filter);
+        }
 
         public async Task<IEnumerable<Employee>> GetByPageRelatedAsync(int skip, int take, Expression<Func<Employee, bool>> predicate = null)
         {
