@@ -2,21 +2,51 @@
 using Microsoft.AspNetCore.Mvc;
 using RecrutaPlus.Web.Models;
 using System.Diagnostics;
+using RecrutaPlus.Domain.Entities;
+using RecrutaPlus.Domain.Interfaces.Services;
+using AutoMapper;
+using RecrutaPlus.Domain.Interfaces;
+using RecrutaPlus.Domain.Services;
+using RecrutaPlus.Domain.Constants;
 
 namespace RecrutaPlus.Web.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
-        private readonly ILogger<LoginController> _logger;
+        private readonly ILoginService _loginService;
 
-        public LoginController(ILogger<LoginController> logger)
+        public LoginController(
+            IMapper mapper,
+            IAppLogger logger,
+            ILoginService loginService) : base(logger, mapper)
         {
+            _mapper = mapper;
             _logger = logger;
+            _loginService = loginService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            LoginViewModel loginViewModel = new LoginViewModel();
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //Login login = await _loginService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+
+            //if (login == null)
+            //{
+            //    return NotFound();
+            //}
+
+            ////AutoMapper
+            //LoginViewModel loginViewModel = _mapper.Map<Login, LoginViewModel>(login);
+
+            //_logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+
+            //return View(loginViewModel);
+
+            LoginViewModel loginViewModel = new LoginViewModel(); //tirar aqui
 
 
             return View(loginViewModel);

@@ -56,6 +56,7 @@ namespace RecrutaPlus.Infra.Data.Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<Office> Offices { get; set; }
+        public DbSet<AppLogger> AppLoggers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

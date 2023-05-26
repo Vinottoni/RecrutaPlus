@@ -129,3 +129,17 @@ ADD CONSTRAINT `usuarios_ibfk_1`
 
 ALTER TABLE `recrutamais`.`usuarios` 
 CHANGE COLUMN `id` `usuarioId` INT NOT NULL AUTO_INCREMENT ;
+
+
+//Criação tabela
+
+CREATE TABLE `recrutamais`.`apploggers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `timeStamp` VARCHAR(100) NULL,
+  `level` VARCHAR(15) NULL,
+  `template` TEXT NULL,
+  `message` TEXT NULL,
+  `exception` TEXT NULL,
+  `properties` TEXT NULL,
+  `_ts` TIMESTAMP NOT NULL,
+  PRIMARY KEY (`id`));

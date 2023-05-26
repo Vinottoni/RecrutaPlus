@@ -5,25 +5,38 @@ using System.Diagnostics;
 using AutoMapper;
 using RecrutaPlus.Domain.Interfaces.Services;
 using RecrutaPlus.Domain.Interfaces;
+using RecrutaPlus.Domain.Entities;
+using RecrutaPlus.Domain.Constants;
 
 namespace RecrutaPlus.Web.Controllers
 {
     public class SettingsController : BaseController
     {
-        //private readonly ILogger<SettingsController> _logger;
+        private readonly IEmployeeService _employeeService;
 
         public SettingsController(
             IMapper mapper,
-            IAppLogger logger) : base(logger, mapper)
+            IAppLogger logger,
+            IEmployeeService employeeService) : base(logger, mapper)
         {
             _mapper = mapper;
             _logger = logger;
+            _employeeService = employeeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
+            Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            //AutoMapper
+            EmployeeViewModel employeeViewModel = _mapper.Map<Employee, EmployeeViewModel>(employee);
+
+            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
             return View(employeeViewModel);
         }

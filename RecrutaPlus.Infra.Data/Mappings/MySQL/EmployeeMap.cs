@@ -2,11 +2,6 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RecrutaPlus.Domain.Entities;
 using RecrutaPlus.Infra.Data.Mappings.DataTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RecrutaPlus.Infra.Data.Mappings.MySQL
 {

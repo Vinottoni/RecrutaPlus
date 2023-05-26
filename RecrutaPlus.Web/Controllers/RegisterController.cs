@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using RecrutaPlus.Application.Filters;
-using RecrutaPlus.Application.Searches;
 using RecrutaPlus.Application.ViewModels;
 using RecrutaPlus.Domain.Constants;
 using RecrutaPlus.Domain.Entities;
-//using RecrutaPlus.Domain.Filters;
 using RecrutaPlus.Domain.Interfaces;
 using RecrutaPlus.Domain.Interfaces.Services;
 using RecrutaPlus.Domain.Resources;
@@ -13,8 +10,6 @@ using RecrutaPlus.Web.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 
 namespace RecrutaPlus.Web.Controllers
@@ -33,97 +28,23 @@ namespace RecrutaPlus.Web.Controllers
             _employeeService = employeeService;
         }
 
-        public async Task<IActionResult> Index(int? id, bool state = false)
+        public async Task<IActionResult> Index(int? id)
         {
-            EmployeeSearch employeeSearch = new EmployeeSearch();
-            IEnumerable<Employee> employees = null;
+            Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (!state)
+            if (employee == null)
             {
-                TempData[DefaultConst.TEMPDATA_FILTERSTATE] = null;
+                return NotFound();
             }
 
-            if (!string.IsNullOrWhiteSpace(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString()))
-            {
-                employeeSearch = JsonSerializer.Deserialize<EmployeeSearch>(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString());
-                if (employeeSearch.HasFilter)
-                {
-                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
-                }
-                else
-                {
-                    EmployeeFilter filter = _mapper.Map<EmployeeFilterViewModel, EmployeeFilter>(employeeSearch?.Filter);
-                    employees = await _employeeService.GetByFilterRelatedAsync(filter);
-                }
-
-                if (state)
-                {
-                    TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
-                }
-            }
-            else
-            {
-                if (id != null)
-                {
-                    Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
-                    if (employee != null)
-                    {
-                        employees = new List<Employee>() { employee };
-                    }
-                }
-                else
-                {
-                    employeeSearch.TakeLast = int.MaxValue;
-                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
-                }
-            }
-
-            List<EmployeeViewModel> employeeViewModels = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(employees).ToList();
-
-            employeeSearch.Itens = employeeViewModels;
-
-            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            //AutoMapper
+            EmployeeViewModel employeeViewModel = _mapper.Map<Employee, EmployeeViewModel>(employee);
 
             _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
-            return View(employeeSearch);
+            return View(employeeViewModel);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(EmployeeSearch employeeSearch)
-        {
-            IEnumerable<Employee> employees;
-
-            if (employeeSearch.HasFilter)
-            {
-                employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
-            }
-            else
-            {
-                EmployeeFilter filter = _mapper.Map<EmployeeFilterViewModel, EmployeeFilter>(employeeSearch?.Filter);
-                employees = await _employeeService.GetByFilterRelatedAsync(filter);
-            }
-
-            List<EmployeeViewModel> employeeViewModels = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(employees).ToList();
-
-            employeeSearch.Itens = employeeViewModels;
-
-            TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
-
-            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
-
-            return View(employeeSearch);
-        }
-
-        //public IActionResult Create()
-        //{
-        //    RegisterViewModel registerViewModel = new RegisterViewModel();
-
-
-        //    return View(registerViewModel);
-
-        //}
         public async Task<IActionResult> Create()
         {
             ViewBag.SelectListCargos = await Task.Run(() => SelectListCargos());
