@@ -26,6 +26,11 @@ namespace RecrutaPlus.Web.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
             if (employee == null)
@@ -39,17 +44,6 @@ namespace RecrutaPlus.Web.Controllers
             _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
             return View(employeeViewModel);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

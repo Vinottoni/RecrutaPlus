@@ -2,35 +2,48 @@
 using Microsoft.AspNetCore.Mvc;
 using RecrutaPlus.Web.Models;
 using System.Diagnostics;
+using RecrutaPlus.Domain.Interfaces.Services;
+using AutoMapper;
+using RecrutaPlus.Domain.Interfaces;
+using RecrutaPlus.Domain.Constants;
+using RecrutaPlus.Domain.Entities;
 
 namespace RecrutaPlus.Web.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfileController : BaseController
     {
-        private readonly ILogger<ProfileController> _logger;
+        private readonly IEmployeeService _employeeService;
 
-        public ProfileController(ILogger<ProfileController> logger)
+        public ProfileController(
+            IMapper mapper,
+            IAppLogger logger,
+            IEmployeeService employeeService) : base(logger, mapper)
         {
+            _mapper = mapper;
             _logger = logger;
+            _employeeService = employeeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            OfficeViewModel profileViewModel = new OfficeViewModel();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            return View(profileViewModel);
-        }
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+            //AutoMapper
+            EmployeeViewModel employeeViewModel = _mapper.Map<Employee, EmployeeViewModel>(employee);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+
+            return View(employeeViewModel);
         }
     }
 }

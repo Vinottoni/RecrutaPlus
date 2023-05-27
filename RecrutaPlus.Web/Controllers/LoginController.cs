@@ -27,27 +27,22 @@ namespace RecrutaPlus.Web.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //Login login = await _loginService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Login login = await _loginService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            //if (login == null)
-            //{
-            //    return NotFound();
-            //}
+            if (login == null)
+            {
+                return NotFound();
+            }
 
-            ////AutoMapper
-            //LoginViewModel loginViewModel = _mapper.Map<Login, LoginViewModel>(login);
+            //AutoMapper
+            LoginViewModel loginViewModel = _mapper.Map<Login, LoginViewModel>(login);
 
-            //_logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
-
-            //return View(loginViewModel);
-
-            LoginViewModel loginViewModel = new LoginViewModel(); //tirar aqui
-
+            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
             return View(loginViewModel);
         }

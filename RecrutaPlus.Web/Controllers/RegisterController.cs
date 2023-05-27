@@ -30,6 +30,11 @@ namespace RecrutaPlus.Web.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
             if (employee == null)
@@ -91,12 +96,6 @@ namespace RecrutaPlus.Web.Controllers
 
             return RedirectToAction(nameof(Index), new { id = employee?.funcionarioId });
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
 
         #region SelectList
 
