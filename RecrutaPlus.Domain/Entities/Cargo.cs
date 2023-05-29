@@ -4,7 +4,7 @@ using RecrutaPlus.Domain.Validators;
 
 namespace RecrutaPlus.Domain.Entities
 {
-    public class Office : Entity
+    public class Cargo : Entity
     {
         //public int OfficeId { get; set; } // assim já deve funcionar blz blz vou ver aqui testa ai e se nao conseguir depois das  18 vc chama ou amanha blz blz
 
@@ -26,11 +26,11 @@ namespace RecrutaPlus.Domain.Entities
         [NotMapped]
         public Guid GuidStamp { get; set; }
 
-        public virtual IList<Employee> Employees { get; set; }
+        public virtual IList<Funcionario> Funcionarios { get; set; }
 
         public override bool IsValid() //Aqui ainda tem refências para criar em Services
         {
-            ValidationResult = new OfficeValidator().Validate(this);
+            ValidationResult = new CargoValidator().Validate(this);
             return ValidationResult.IsValid;
         }
     }

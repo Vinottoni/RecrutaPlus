@@ -3,11 +3,11 @@ using RecrutaPlus.Domain.Entities;
 
 namespace RecrutaPlus.Domain.Validators
 {
-    public class OfficeValidator : AbstractValidator<Office>
+    public class FuncionarioValidator : AbstractValidator<Funcionario>
     {
-        public OfficeValidator() 
+        public FuncionarioValidator() 
         { 
-
+        
         }
     }
 }

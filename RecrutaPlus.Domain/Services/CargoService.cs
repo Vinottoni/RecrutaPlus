@@ -13,20 +13,20 @@ using System.Threading.Tasks;
 
 namespace RecrutaPlus.Domain.Services
 {
-    public class OfficeService : Service<Office>, IOfficeService
+    public class CargoService : Service<Cargo>, ICargoService
     {
-        private readonly IOfficeRepository _officeRepository;
+        private readonly ICargoRepository _cargoRepository;
         private readonly IAppLogger _logger;
 
 
-        public OfficeService(IOfficeRepository parametroRepository, IAppLogger logger)
+        public CargoService(ICargoRepository parametroRepository, IAppLogger logger)
             : base(parametroRepository)
         {
-            _officeRepository = parametroRepository;
+            _cargoRepository = parametroRepository;
             _logger = logger;
         }
 
-        public override ServiceResult Add(Office entity)
+        public override ServiceResult Add(Cargo entity)
         {
             ServiceResult serviceResult = new ServiceResult();
 
@@ -46,12 +46,12 @@ namespace RecrutaPlus.Domain.Services
 
             base.Add(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_ADD, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
+            _logger.LogInformation(CargoConst.LOG_TABLE_ADD, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }
 
-        public override ServiceResult Update(Office entity)
+        public override ServiceResult Update(Cargo entity)
         {
             ServiceResult serviceResult = new ServiceResult();
 
@@ -71,12 +71,12 @@ namespace RecrutaPlus.Domain.Services
 
             base.Update(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_UPDATE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
+            _logger.LogInformation(CargoConst.LOG_TABLE_UPDATE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }
 
-        public override ServiceResult Delete(Office entity)
+        public override ServiceResult Delete(Cargo entity)
         {
             ServiceResult serviceResult = new ServiceResult();
 
@@ -97,31 +97,31 @@ namespace RecrutaPlus.Domain.Services
 
             base.Delete(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_REMOVE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
+            _logger.LogInformation(CargoConst.LOG_TABLE_REMOVE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }
-        public async Task<Office> GetByIdAsync(int id)
+        public async Task<Cargo> GetByIdAsync(int id)
         {
-            return await _officeRepository.GetByIdAsync(id);
+            return await _cargoRepository.GetByIdAsync(id);
         }
         //public async Task<Office> GetByIdRelatedAsync(int id)
         //{
         //    return await _officeRepository.GetByIdRelatedAsync(id);
         //}
-        public async Task<IEnumerable<Office>> GetByFilterAsync(OfficeFilter filter = null)
+        public async Task<IEnumerable<Cargo>> GetByFilterAsync(CargoFilter filter = null)
         {
-            return await _officeRepository.GetByFilterAsync(filter);
+            return await _cargoRepository.GetByFilterAsync(filter);
         }
 
-        public async Task<IEnumerable<Office>> GetByPageAsync(int skip, int take, Expression<Func<Office, bool>> predicate = null)
+        public async Task<IEnumerable<Cargo>> GetByPageAsync(int skip, int take, Expression<Func<Cargo, bool>> predicate = null)
         {
-            return await _officeRepository.GetByPageAsync(skip, take, predicate);
+            return await _cargoRepository.GetByPageAsync(skip, take, predicate);
         }
 
-        public async Task<IEnumerable<Office>> GetByTakeLastAsync(int takeLast, Expression<Func<Office, bool>> predicate = null)
+        public async Task<IEnumerable<Cargo>> GetByTakeLastAsync(int takeLast, Expression<Func<Cargo, bool>> predicate = null)
         {
-            return await _officeRepository.GetByTakeLastAsync(takeLast, predicate);
+            return await _cargoRepository.GetByTakeLastAsync(takeLast, predicate);
         }
 
         //public async Task<IEnumerable<Office>> GetByQueryRelatedAsync(Expression<Func<Office, bool>> predicate = null)

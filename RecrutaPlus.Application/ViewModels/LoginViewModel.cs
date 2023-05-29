@@ -28,7 +28,7 @@ namespace RecrutaPlus.Application.ViewModels
         public Guid GuidStamp { get; set; }
 
         [JsonIgnore]
-        public virtual IList<EmployeeViewModel> Employees { get; set; }
+        public virtual IList<FuncionarioViewModel> Funcionarios { get; set; }
 
     }
 }

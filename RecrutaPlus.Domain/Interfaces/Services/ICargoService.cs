@@ -4,15 +4,15 @@ using System.Linq.Expressions;
 
 namespace RecrutaPlus.Domain.Interfaces.Services
 {
-    public interface IOfficeService: IService<Office>
+    public interface ICargoService: IService<Cargo>
     {
-        Task<Office> GetByIdAsync(int id);
+        Task<Cargo> GetByIdAsync(int id);
         //Task<Office> GetByIdRelatedAsync(int id);
-        Task<IEnumerable<Office>> GetByFilterAsync(OfficeFilter filter = null);
+        Task<IEnumerable<Cargo>> GetByFilterAsync(CargoFilter filter = null);
         //Task<IEnumerable<Office>> GetByFilterRelatedAsync(OfficeFilter filter = null);
-        Task<IEnumerable<Office>> GetByPageAsync(int skip, int take, Expression<Func<Office, bool>> predicate = null);
+        Task<IEnumerable<Cargo>> GetByPageAsync(int skip, int take, Expression<Func<Cargo, bool>> predicate = null);
         //Task<IEnumerable<Office>> GetByPageRelatedAsync(int skip, int take, Expression<Func<Office, bool>> predicate = null);
-        Task<IEnumerable<Office>> GetByTakeLastAsync(int takeLast, Expression<Func<Office, bool>> predicate = null);
+        Task<IEnumerable<Cargo>> GetByTakeLastAsync(int takeLast, Expression<Func<Cargo, bool>> predicate = null);
         //Task<IEnumerable<Office>> GetByTakeLastRelatedAsync(int takeLast, Expression<Func<Office, bool>> predicate = null);
     }
 }

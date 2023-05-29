@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace RecrutaPlus.Application.Filters
 {
-    public class EmployeeFilterViewModel
+    public class FuncionarioFilterViewModel
     {
         [Display(Name = "Código")]
         public int? funcionarioId { get; set; }
@@ -60,6 +60,6 @@ namespace RecrutaPlus.Application.Filters
         public Guid? GuidStamp { get; set; }
 
 
-        public virtual IList<OfficeViewModel> OfficeViewModels { get; set; }
+        public virtual IList<CargoViewModel> CargoViewModels { get; set; }
     }
 }

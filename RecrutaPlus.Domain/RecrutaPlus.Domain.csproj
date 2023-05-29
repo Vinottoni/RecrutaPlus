@@ -17,20 +17,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DefaultResource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\EmployeeResource.Designer.cs">
+    <Compile Update="Resources\FuncionarioResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>EmployeeResource.resx</DependentUpon>
+      <DependentUpon>FuncionarioResource.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\LoginResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>LoginResource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\OfficeResource.Designer.cs">
+    <Compile Update="Resources\CargoResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>OfficeResource.resx</DependentUpon>
+      <DependentUpon>CargoResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -39,17 +39,17 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DefaultResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\EmployeeResource.resx">
+    <EmbeddedResource Update="Resources\FuncionarioResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmployeeResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>FuncionarioResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\LoginResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LoginResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\OfficeResource.resx">
+    <EmbeddedResource Update="Resources\CargoResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OfficeResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>CargoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

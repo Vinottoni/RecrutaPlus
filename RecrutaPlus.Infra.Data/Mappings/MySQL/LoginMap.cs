@@ -71,7 +71,7 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.HasIndex(d => d.FuncionarioId);
 
             //FK
-            builder.HasOne(d => d.Employee)
+            builder.HasOne(d => d.Funcionario)
                 .WithMany(p => p.Logins)
                 .HasForeignKey(d => d.FuncionarioId);
         }

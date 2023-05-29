@@ -30,6 +30,6 @@ namespace RecrutaPlus.Application.Filters
         public Guid? GuidStamp { get; set; }
 
 
-        public virtual IList<EmployeeViewModel> Employees { get; set; }
+        public virtual IList<FuncionarioViewModel> Employees { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RecrutaPlus.Application.ViewModels
 {
-    public class OfficeViewModel
+    public class CargoViewModel
     {
         [Display(Name = "Código")]
         public int CargoId { get; set; }

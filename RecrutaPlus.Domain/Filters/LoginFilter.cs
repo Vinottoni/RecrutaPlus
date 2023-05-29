@@ -27,8 +27,8 @@ namespace RecrutaPlus.Application.ViewModels
         public long? VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
         public Guid? GuidStamp { get; set; }
 
-        public virtual EmployeeFilter EmployeeFilter { get; set; }
-        public virtual IList<EmployeeFilter> Employees { get; set; }
+        public virtual FuncionarioFilter FuncionarioFilter { get; set; }
+        public virtual IList<FuncionarioFilter> Funcionarios { get; set; }
 
     }
 }

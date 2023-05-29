@@ -13,15 +13,15 @@ namespace RecrutaPlus.Infra.Data.IoC
         public static void RegisterServices(this IServiceCollection services)
         {
             //Repository
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IFuncionarioRepository, FuncionarioRepository>();
             services.AddTransient<ILoginRepository, LoginRepository>();
-            services.AddTransient<IOfficeRepository, OfficeRepository>();
+            services.AddTransient<ICargoRepository, CargoRepository>();
             services.AddTransient<IAppLoggerRepository, AppLoggerRepository>();
 
             //Service
-            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IFuncionarioService, FuncionarioService>();
             services.AddTransient<ILoginService, LoginService>();
-            services.AddTransient<IOfficeService, OfficeService>();
+            services.AddTransient<ICargoService, CargoService>();
             services.AddTransient<IAppLoggerService, AppLoggerService>();
 
             //Logger

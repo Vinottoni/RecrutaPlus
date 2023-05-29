@@ -13,25 +13,25 @@ using System.Threading.Tasks;
 
 namespace RecrutaPlus.Infra.Data.Repositories
 {
-    public class EmployeeRepository : RepositoryAsync<Employee>, IEmployeeRepository
+    public class FuncionarioRepository : RepositoryAsync<Funcionario>, IFuncionarioRepository
     {
-        public EmployeeRepository(AppDbContext dbContext) : base(dbContext) 
+        public FuncionarioRepository(AppDbContext dbContext) : base(dbContext) 
         { 
 
         }
-        public async Task<Employee> GetByIdAsync(int id)
+        public async Task<Funcionario> GetByIdAsync(int id)
         {
             return await _dbContext.Employees.AsNoTrackingWithIdentityResolution().SingleOrDefaultAsync(s => s.FuncionarioId == id);
         }
 
-        public async Task<Employee> GetByIdRelatedAsync(int id)
+        public async Task<Funcionario> GetByIdRelatedAsync(int id)
         {
             return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office)
+                .Include(i => i.Cargo)
                 .SingleOrDefaultAsync(s => s.FuncionarioId == id);
         }
 
-        public async Task<IEnumerable<Employee>> GetByFilterAsync(EmployeeFilter filter = null)
+        public async Task<IEnumerable<Funcionario>> GetByFilterAsync(FuncionarioFilter filter = null)
         {
             var _query = _dbContext.Employees.AsNoTrackingWithIdentityResolution();
 
@@ -44,10 +44,10 @@ namespace RecrutaPlus.Infra.Data.Repositories
             return await _query.ToListAsync();
         }
 
-        public async Task<IEnumerable<Employee>> GetByFilterRelatedAsync(EmployeeFilter filter = null)
+        public async Task<IEnumerable<Funcionario>> GetByFilterRelatedAsync(FuncionarioFilter filter = null)
         {
             var _query = _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office);
+                .Include(i => i.Cargo);
 
             //if (filter?.funcionarioId != null) { _query = _query.Where(w => w.funcionarioId == filter.funcionarioId.GetValueOrDefault()); }
             //if (filter?.cargoId != null) { _query = _query.Where(w => w.cargoId == filter.cargoId); }
@@ -62,7 +62,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
             return await _query.ToListAsync();
         }
 
-        public async Task<IEnumerable<Employee>> GetByPageAsync(int skip, int take, Expression<Func<Employee, bool>> predicate = null)
+        public async Task<IEnumerable<Funcionario>> GetByPageAsync(int skip, int take, Expression<Func<Funcionario, bool>> predicate = null)
         {
             if (predicate == null)
             {
@@ -74,23 +74,23 @@ namespace RecrutaPlus.Infra.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<Employee>> GetByQueryRelatedAsync(Expression<Func<Employee, bool>> predicate = null)
+        public async Task<IEnumerable<Funcionario>> GetByQueryRelatedAsync(Expression<Func<Funcionario, bool>> predicate = null)
         {
             if (predicate == null)
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                    .Include(i => i.Office)
+                    .Include(i => i.Cargo)
                     .ToListAsync();
             }
             else
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                    .Include(i => i.Office)
+                    .Include(i => i.Cargo)
                     .Where(predicate).ToListAsync();
             }
         }
 
-        public async Task<IEnumerable<Employee>> GetByTakeLastAsync(int takeLast, Expression<Func<Employee, bool>> predicate = null)
+        public async Task<IEnumerable<Funcionario>> GetByTakeLastAsync(int takeLast, Expression<Func<Funcionario, bool>> predicate = null)
         {
             if (predicate == null)
             {
@@ -102,34 +102,34 @@ namespace RecrutaPlus.Infra.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<Employee>> GetByPageRelatedAsync(int skip, int take, Expression<Func<Employee, bool>> predicate = null)
+        public async Task<IEnumerable<Funcionario>> GetByPageRelatedAsync(int skip, int take, Expression<Func<Funcionario, bool>> predicate = null)
         {
             if (predicate == null)
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office)
+                .Include(i => i.Cargo)
                 .OrderBy(o => o.FuncionarioId).Skip(skip).Take(take).ToListAsync();
             }
             else
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office)
+                .Include(i => i.Cargo)
                 .Where(predicate).OrderBy(o => o.FuncionarioId).Skip(skip).Take(take).ToListAsync();
             }
         }
 
-        public async Task<IEnumerable<Employee>> GetByTakeLastRelatedAsync(int takeLast, Expression<Func<Employee, bool>> predicate = null)
+        public async Task<IEnumerable<Funcionario>> GetByTakeLastRelatedAsync(int takeLast, Expression<Func<Funcionario, bool>> predicate = null)
         {
             if (predicate == null)
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office)
+                .Include(i => i.Cargo)
                 .OrderBy(o => o.FuncionarioId).Take(takeLast).ToListAsync();
             }
             else
             {
                 return await _dbContext.Employees.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Office)
+                .Include(i => i.Cargo)
                 .Where(predicate).OrderBy(o => o.FuncionarioId).Take(takeLast).ToListAsync();
             }
         }

@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.ComponentModel.DataAnnotations;
 
-namespace RecrutaPlus.Application.Filters
+
+namespace RecrutaPlus.Application.ViewModels
 {
-    public class OfficeFilterViewModel
+    public class CargoFilter
     {
-        [Display(Name = "Código")]
-        public int? cargoId { get; set; }
+        public int? CargoId { get; set; }
 
-        [Display(Name = "Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
-        [Display(Name = "Descrição")]
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
 
-        [Display(Name = "Salário")]
-        public decimal? salario { get; set; }
+        public decimal? Salario { get; set; }
 
         //Default
         public DateTime? Cadastro { get; set; }

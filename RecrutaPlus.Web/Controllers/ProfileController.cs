@@ -12,12 +12,12 @@ namespace RecrutaPlus.Web.Controllers
 {
     public class ProfileController : BaseController
     {
-        private readonly IEmployeeService _employeeService;
+        private readonly IFuncionarioService _employeeService;
 
         public ProfileController(
             IMapper mapper,
             IAppLogger logger,
-            IEmployeeService employeeService) : base(logger, mapper)
+            IFuncionarioService employeeService) : base(logger, mapper)
         {
             _mapper = mapper;
             _logger = logger;
@@ -31,7 +31,7 @@ namespace RecrutaPlus.Web.Controllers
                 return NotFound();
             }
 
-            Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Funcionario employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
             if (employee == null)
             {
@@ -39,9 +39,9 @@ namespace RecrutaPlus.Web.Controllers
             }
 
             //AutoMapper
-            EmployeeViewModel employeeViewModel = _mapper.Map<Employee, EmployeeViewModel>(employee);
+            FuncionarioViewModel employeeViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(employee);
 
-            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+            _logger.LogInformation(FuncionarioConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
             return View(employeeViewModel);
         }

@@ -5,9 +5,9 @@ using RecrutaPlus.Infra.Data.Mappings.DataTypes;
 
 namespace RecrutaPlus.Infra.Data.Mappings.MySQL
 {
-    public class OfficeMap : IEntityTypeConfiguration<Office>
+    public class CargoMap : IEntityTypeConfiguration<Cargo>
     {
-        public void Configure(EntityTypeBuilder<Office> builder)
+        public void Configure(EntityTypeBuilder<Cargo> builder)
         {
             //Table
             builder.ToTable("cargos");

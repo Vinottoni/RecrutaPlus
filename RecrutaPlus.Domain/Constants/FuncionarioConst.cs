@@ -1,6 +1,6 @@
 ﻿namespace RecrutaPlus.Domain.Constants
 {
-    public struct EmployeeConst
+    public struct FuncionarioConst
     {
         public static string MSG_SELECIONE = "Selecione...";
 

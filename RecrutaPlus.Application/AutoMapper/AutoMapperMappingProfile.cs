@@ -9,14 +9,14 @@ namespace RecrutaPlus.Application.AutoMapper
     {
         public AutoMapperMappingProfile() 
         {
-            CreateMap<Employee, EmployeeViewModel>().ReverseMap();
+            CreateMap<Funcionario, FuncionarioViewModel>().ReverseMap();
             CreateMap<Login, LoginViewModel>().ReverseMap();
-            CreateMap<Office, OfficeViewModel>().ReverseMap();
+            CreateMap<Cargo, CargoViewModel>().ReverseMap();
 
             //ParamFilterViewModel
-            CreateMap<EmployeeFilter, EmployeeFilterViewModel>().ReverseMap();
+            CreateMap<FuncionarioFilter, FuncionarioFilterViewModel>().ReverseMap();
             CreateMap<LoginFilter, LoginFilterViewModel>().ReverseMap();
-            CreateMap<OfficeFilter, OfficeFilterViewModel>().ReverseMap();
+            CreateMap<CargoFilter, CargoFilterViewModel>().ReverseMap();
         }
     }
 }

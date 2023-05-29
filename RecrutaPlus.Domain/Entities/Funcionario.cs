@@ -1,53 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using RecrutaPlus.Domain.Validators;
 
-namespace RecrutaPlus.Application.ViewModels
+namespace RecrutaPlus.Domain.Entities
 {
-    public class EmployeeViewModel
+    public class Funcionario : Entity
     {
-        [Display(Name = "Código")]
+        //public int EmployeeId { get; set; }
+
         public int FuncionarioId { get; set; }
 
-        [Display(Name = "Nome")]
+        public int CargoId { get; set; }
+
         public string Nome { get; set; }
 
-        [Display(Name = "RG")]
         public string RG { get; set; }
 
-        [Display(Name = "CPF")]
         public string CPF { get; set; }
 
-        [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Telefone")]
         public string Telefone { get; set; }
 
-        [Display(Name = "Data de Nascimento")]
         public DateOnly DataNascimento { get; set; }
 
-        [Display(Name = "Gênero")]
         public string Genero { get; set; }
 
-        [Display(Name = "CEP")]
         public string CEP { get; set; }
 
-        [Display(Name = "Endereço")]
         public string Endereco { get; set; }
 
-        [Display(Name = "Bairro")]
         public string Bairro { get; set; }
 
-        [Display(Name = "Educação")]
         public string Educacao { get; set; }
 
-        [Display(Name = "Status")]
         public string Status { get; set; }
+
 
         //Default
         public DateTime Cadastro { get; set; }
@@ -55,10 +43,19 @@ namespace RecrutaPlus.Application.ViewModels
         public DateTime Edicao { get; set; }
         public string EditadoPor { get; set; }
         public long VersionStamp { get; set; } //public byte[]? VersionStamp { get; set; }
+        [NotMapped]
         public Guid GuidStamp { get; set; }
 
-        [JsonIgnore]
-        public virtual IList<OfficeViewModel> OfficeViewModels { get; set; }
+        public virtual Cargo Cargo { get; set; }
+        public virtual Login Login { get; set; }
+        public virtual IList<Cargo> Cargos { get; set; }
+        public virtual IList<Login> Logins { get; set; }
+
+        public override bool IsValid()  //Aqui ainda tem refências para criar em Services
+        {
+            ValidationResult = new FuncionarioValidator().Validate(this);
+            return ValidationResult.IsValid;
+        }
 
     }
 }

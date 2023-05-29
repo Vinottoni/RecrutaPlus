@@ -53,16 +53,16 @@ namespace RecrutaPlus.Infra.Data.Context
             }
         }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Funcionario> Employees { get; set; }
         public DbSet<Login> Logins { get; set; }
-        public DbSet<Office> Offices { get; set; }
+        public DbSet<Cargo> Offices { get; set; }
         public DbSet<AppLogger> AppLoggers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new EmployeeMap());
+            builder.ApplyConfiguration(new FuncionarioMap());
             builder.ApplyConfiguration(new LoginMap());
-            builder.ApplyConfiguration(new OfficeMap());
+            builder.ApplyConfiguration(new CargoMap());
         }
 
     }

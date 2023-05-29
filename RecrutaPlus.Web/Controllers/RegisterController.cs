@@ -16,16 +16,16 @@ namespace RecrutaPlus.Web.Controllers
 {
     public class RegisterController : BaseController
     {
-        private readonly IEmployeeService _employeeService;
+        private readonly IFuncionarioService _funcionarioService;
 
         public RegisterController(
             IMapper mapper, 
             IAppLogger logger, 
-            IEmployeeService employeeService) : base(logger, mapper)
+            IFuncionarioService funcionarioService) : base(logger, mapper)
         {
             _mapper = mapper;
             _logger = logger;
-            _employeeService = employeeService;
+            _funcionarioService = funcionarioService;
         }
 
         public async Task<IActionResult> Index(int? id)
@@ -35,49 +35,49 @@ namespace RecrutaPlus.Web.Controllers
             //    return NotFound();
             //}
 
-            Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (employee == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
             //AutoMapper
-            EmployeeViewModel employeeViewModel = _mapper.Map<Employee, EmployeeViewModel>(employee);
+            FuncionarioViewModel funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
 
-            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+            _logger.LogInformation(FuncionarioConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
-            return View(employeeViewModel);
+            return View(funcionarioViewModel);
         }
 
         public async Task<IActionResult> Create()
         {
             ViewBag.SelectListCargos = await Task.Run(() => SelectListCargos());
 
-            _logger.LogInformation(EmployeeConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
+            _logger.LogInformation(FuncionarioConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            EmployeeViewModel employeeViewModel = await Task.Run(() => new EmployeeViewModel());
+            FuncionarioViewModel funcionarioViewModel = await Task.Run(() => new FuncionarioViewModel());
 
-            return View(employeeViewModel);
+            return View(funcionarioViewModel);
         }
 
         [Authorize(Policy = AuthorizationPolicyConst.REGISTER_CREATE)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(EmployeeViewModel employeeViewModel)
+        public async Task<IActionResult> Create(FuncionarioViewModel funcionarioViewModel)
         {
             ViewBag.SelectListCargos = await Task.Run(() => SelectListCargos());
 
             //AutoMapper
-            var employee = _mapper.Map<EmployeeViewModel, Employee>(employeeViewModel);
+            var funcionario = _mapper.Map<FuncionarioViewModel, Funcionario>(funcionarioViewModel);
 
-            employee.Cadastro = DateTime.Now;
-            employee.CadastradoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
-            employee.Edicao = DateTime.Now;
-            employee.EditadoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
-            employee.GuidStamp = Guid.NewGuid();
+            funcionario.Cadastro = DateTime.Now;
+            funcionario.CadastradoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
+            funcionario.Edicao = DateTime.Now;
+            funcionario.EditadoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
+            funcionario.GuidStamp = Guid.NewGuid();
 
-            ServiceResult serviceResult = _employeeService.Add(employee);
+            ServiceResult serviceResult = _funcionarioService.Add(funcionario);
 
             //Validation
             if (serviceResult.HasErrors)
@@ -85,16 +85,16 @@ namespace RecrutaPlus.Web.Controllers
 
                 serviceResult.ToModelStateDictionary(ModelState);
 
-                return View(employeeViewModel);
+                return View(funcionarioViewModel);
             }
 
-            _ = await _employeeService.SaveChangesAsync();
+            _ = await _funcionarioService.SaveChangesAsync();
 
-            SuccessMessage = EmployeeResource.MSG_SAVED_SUCCESSFULLY;
+            SuccessMessage = FuncionarioResource.MSG_SAVED_SUCCESSFULLY;
 
-            _logger.LogInformation(EmployeeConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
+            _logger.LogInformation(FuncionarioConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return RedirectToAction(nameof(Index), new { id = employee?.FuncionarioId });
+            return RedirectToAction(nameof(Index), new { id = funcionario?.FuncionarioId });
         }
 
         #region SelectList
@@ -102,11 +102,11 @@ namespace RecrutaPlus.Web.Controllers
         private List<SelectListItem> SelectListCargos()
         {
             List<SelectListItem> selectListItems = new List<SelectListItem>();
-            IEnumerable<Employee> employees = _employeeService.GetAllAsync().GetAwaiter().GetResult();
+            IEnumerable<Funcionario> funcionarios = _funcionarioService.GetAllAsync().GetAwaiter().GetResult();
 
             selectListItems.Add(new SelectListItem(DefaultResource.MSG_SELECIONE, string.Empty, true));
 
-            //foreach (var item in employees.OrderBy(o => o.cargo))
+            //foreach (var item in funcionarios.OrderBy(o => o.cargo))
             //{
             //    selectListItems.Add(new SelectListItem(text: item.Nome, value: item.BancoId.ToString()));
             //}

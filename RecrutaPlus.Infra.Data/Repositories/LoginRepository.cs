@@ -26,7 +26,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
         public async Task<Login> GetByIdRelatedAsync(int id)
         {
             return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Employee)
+                .Include(i => i.Funcionario)
                 .SingleOrDefaultAsync(s => s.UsuarioId == id);
         }
 
@@ -86,13 +86,13 @@ namespace RecrutaPlus.Infra.Data.Repositories
             if (predicate == null)
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                    .Include(i => i.Employee)
+                    .Include(i => i.Funcionario)
                     .ToListAsync();
             }
             else
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                    .Include(i => i.Employee)
+                    .Include(i => i.Funcionario)
                     .Where(predicate).ToListAsync();
             }
         }
@@ -114,13 +114,13 @@ namespace RecrutaPlus.Infra.Data.Repositories
             if (predicate == null)
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Employee)
+                .Include(i => i.Funcionario)
                 .OrderBy(o => o.UsuarioId).Skip(skip).Take(take).ToListAsync();
             }
             else
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Employee)
+                .Include(i => i.Funcionario)
                 .Where(predicate).OrderBy(o => o.UsuarioId).Skip(skip).Take(take).ToListAsync();
             }
         }
@@ -130,13 +130,13 @@ namespace RecrutaPlus.Infra.Data.Repositories
             if (predicate == null)
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Employee)
+                .Include(i => i.Funcionario)
                 .OrderBy(o => o.UsuarioId).Take(takeLast).ToListAsync();
             }
             else
             {
                 return await _dbContext.Logins.AsNoTrackingWithIdentityResolution()
-                .Include(i => i.Employee)
+                .Include(i => i.Funcionario)
                 .Where(predicate).OrderBy(o => o.UsuarioId).Take(takeLast).ToListAsync();
             }
         }

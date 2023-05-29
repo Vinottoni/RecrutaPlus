@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RecrutaPlus.Application.ViewModels
 {
-    public class EmployeeFilter
+    public class FuncionarioFilter
     {
         public int? FuncionarioId { get; set; }
 
@@ -47,9 +47,9 @@ namespace RecrutaPlus.Application.ViewModels
         public Guid? GuidStamp { get; set; }
 
 
-        public virtual OfficeFilter OfficeFilter { get; set; }
+        public virtual CargoFilter CargoFilter { get; set; }
         public virtual LoginFilter LoginFilter { get; set; }
-        public virtual IList<OfficeFilter> OfficeViewModels { get; set; }
+        public virtual IList<CargoFilter> CargoViewModels { get; set; }
 
     }
 }

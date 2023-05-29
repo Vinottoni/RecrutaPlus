@@ -42,7 +42,7 @@ namespace RecrutaPlus.Web.Controllers
             //AutoMapper
             LoginViewModel loginViewModel = _mapper.Map<Login, LoginViewModel>(login);
 
-            _logger.LogInformation(EmployeeConst.LOG_INDEX, GetUserName(), DateTime.Now);
+            _logger.LogInformation(FuncionarioConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
             return View(loginViewModel);
         }

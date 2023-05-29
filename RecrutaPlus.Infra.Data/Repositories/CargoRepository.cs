@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace RecrutaPlus.Infra.Data.Repositories
 {
-    public class OfficeRepository : RepositoryAsync<Office>, IOfficeRepository
+    public class CargoRepository : RepositoryAsync<Cargo>, ICargoRepository
     {
-        public OfficeRepository(AppDbContext dbContext) : base(dbContext)
+        public CargoRepository(AppDbContext dbContext) : base(dbContext)
         {
 
         }
-        public async Task<Office> GetByIdAsync(int id)
+        public async Task<Cargo> GetByIdAsync(int id)
         {
             return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().SingleOrDefaultAsync(s => s.CargoId == id);
         }
@@ -30,7 +30,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
         //        .SingleOrDefaultAsync(s => s.usuarioId == id);
         //}
 
-        public async Task<IEnumerable<Office>> GetByFilterAsync(OfficeFilter filter = null)
+        public async Task<IEnumerable<Cargo>> GetByFilterAsync(CargoFilter filter = null)
         {
             var _query = _dbContext.Offices.AsNoTrackingWithIdentityResolution();
 
@@ -69,7 +69,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
         //    return await _query.ToListAsync();
         //}
 
-        public async Task<IEnumerable<Office>> GetByPageAsync(int skip, int take, Expression<Func<Office, bool>> predicate = null)
+        public async Task<IEnumerable<Cargo>> GetByPageAsync(int skip, int take, Expression<Func<Cargo, bool>> predicate = null)
         {
             if (predicate == null)
             {
@@ -97,7 +97,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
         //    }
         //}
 
-        public async Task<IEnumerable<Office>> GetByTakeLastAsync(int takeLast, Expression<Func<Office, bool>> predicate = null)
+        public async Task<IEnumerable<Cargo>> GetByTakeLastAsync(int takeLast, Expression<Func<Cargo, bool>> predicate = null)
         {
             if (predicate == null)
             {

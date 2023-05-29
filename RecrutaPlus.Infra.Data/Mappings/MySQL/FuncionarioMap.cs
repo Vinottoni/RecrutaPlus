@@ -5,9 +5,9 @@ using RecrutaPlus.Infra.Data.Mappings.DataTypes;
 
 namespace RecrutaPlus.Infra.Data.Mappings.MySQL
 {
-    public class EmployeeMap : IEntityTypeConfiguration<Employee>
+    public class FuncionarioMap : IEntityTypeConfiguration<Funcionario>
     {
-        public void Configure(EntityTypeBuilder<Employee> builder)
+        public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
             //Table
             builder.ToTable("funcionarios");
@@ -116,8 +116,8 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.HasIndex(d => d.CargoId);
 
             //FK
-            builder.HasOne(d => d.Office)
-                .WithMany(p => p.Employees)
+            builder.HasOne(d => d.Cargo)
+                .WithMany(p => p.Funcionarios)
                 .HasForeignKey(d => d.CargoId);
         }
     }

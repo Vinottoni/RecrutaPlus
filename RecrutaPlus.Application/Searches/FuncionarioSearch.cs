@@ -7,11 +7,11 @@ using System.Text.Json.Serialization;
 
 namespace RecrutaPlus.Application.Searches
 {
-    public class OfficeSearch
+    public class FuncionarioSearch
     {
         [JsonIgnore]
-        public List<OfficeViewModel> Itens { get; set; } = new List<OfficeViewModel>();
-        public OfficeFilterViewModel Filter { get; set; }
+        public List<FuncionarioViewModel> Itens { get; set; } = new List<FuncionarioViewModel>();
+        public FuncionarioFilterViewModel Filter { get; set; }
 
         [Display(Name = "Carregar")]
         public bool HasFilter { get; set; } = DefaultConst.FILTER_HASFILTER_DEFAULT;
