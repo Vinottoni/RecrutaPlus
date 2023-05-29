@@ -35,15 +35,17 @@ namespace RecrutaPlus.Web.Controllers
             //    return NotFound();
             //}
 
-            Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            //Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (funcionario == null)
-            {
-                return NotFound();
-            }
+            //if (funcionario == null)
+            //{
+            //    return NotFound();
+            //}
 
-            //AutoMapper
-            FuncionarioViewModel funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
+            ////AutoMapper
+            //FuncionarioViewModel funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
+
+            FuncionarioViewModel funcionarioViewModel = new FuncionarioViewModel();
 
             _logger.LogInformation(FuncionarioConst.LOG_INDEX, GetUserName(), DateTime.Now);
 
@@ -61,7 +63,7 @@ namespace RecrutaPlus.Web.Controllers
             return View(funcionarioViewModel);
         }
 
-        [Authorize(Policy = AuthorizationPolicyConst.REGISTER_CREATE)]
+        //[Authorize(Policy = AuthorizationPolicyConst.REGISTER_CREATE)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FuncionarioViewModel funcionarioViewModel)

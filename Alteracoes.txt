@@ -163,3 +163,6 @@ ALTER TABLE `recrutamais`.`funcionarios`
 ADD CONSTRAINT `funcionarios_ibfk_1`
   FOREIGN KEY (`cargoId`)
   REFERENCES `recrutamais`.`cargos` (`cargoId`);
+
+  ALTER TABLE `recrutaplus`.`funcionarios` 
+CHANGE COLUMN `status` `status` TINYINT NOT NULL ;

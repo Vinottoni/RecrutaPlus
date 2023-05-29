@@ -17,22 +17,22 @@ namespace RecrutaPlus.Web.Controllers
 {
     public class FuncionariosController : BaseController
     {
-        private readonly IFuncionarioService _employeeService;
+        private readonly IFuncionarioService _funcionarioService;
 
         public FuncionariosController(
             IMapper mapper,
             IAppLogger logger,
-            IFuncionarioService employeeService) : base(logger, mapper)
+            IFuncionarioService funcionarioService) : base(logger, mapper)
         {
             _mapper = mapper;
             _logger = logger;
-            _employeeService = employeeService;
+            _funcionarioService = funcionarioService;
         }
 
         public async Task<IActionResult> Index(int? id, bool state = false)
         {
-            FuncionarioSearch employeeSearch = new FuncionarioSearch();
-            IEnumerable<Funcionario> employees = null;
+            FuncionarioSearch funcionarioSearch = new FuncionarioSearch();
+            IEnumerable<Funcionario> funcionarios = null;
 
             if (!state)
             {
@@ -41,72 +41,72 @@ namespace RecrutaPlus.Web.Controllers
 
             if (!string.IsNullOrWhiteSpace(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString()))
             {
-                employeeSearch = JsonSerializer.Deserialize<FuncionarioSearch>(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString());
-                if (employeeSearch.HasFilter)
+                funcionarioSearch = JsonSerializer.Deserialize<FuncionarioSearch>(TempData[DefaultConst.TEMPDATA_FILTERSTATE]?.ToString());
+                if (funcionarioSearch.HasFilter)
                 {
-                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+                    funcionarios = await _funcionarioService.GetByTakeLastRelatedAsync(funcionarioSearch.TakeLast);
                 }
                 else
                 {
-                    FuncionarioFilter filter = _mapper.Map<FuncionarioFilterViewModel, FuncionarioFilter>(employeeSearch?.Filter);
-                    employees = await _employeeService.GetByFilterRelatedAsync(filter);
+                    FuncionarioFilter filter = _mapper.Map<FuncionarioFilterViewModel, FuncionarioFilter>(funcionarioSearch?.Filter);
+                    funcionarios = await _funcionarioService.GetByFilterRelatedAsync(filter);
                 }
 
                 if (state)
                 {
-                    TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
+                    TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(funcionarioSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
                 }
             }
             else
             {
                 if (id != null)
                 {
-                    Funcionario employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
-                    if (employee != null)
+                    Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+                    if (funcionario != null)
                     {
-                        employees = new List<Funcionario>() { employee };
+                        funcionarios = new List<Funcionario>() { funcionario };
                     }
                 }
                 else
                 {
-                    employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+                    funcionarios = await _funcionarioService.GetByTakeLastRelatedAsync(funcionarioSearch.TakeLast);
                 }
             }
 
-            List<FuncionarioViewModel> employeeViewModels = _mapper.Map<IEnumerable<Funcionario>, IEnumerable<FuncionarioViewModel>>(employees).ToList();
+            List<FuncionarioViewModel> funcionarioViewModels = _mapper.Map<IEnumerable<Funcionario>, IEnumerable<FuncionarioViewModel>>(funcionarios).ToList();
 
-            employeeSearch.Itens = employeeViewModels;
+            funcionarioSearch.Itens = funcionarioViewModels;
 
             _logger.LogInformation(FuncionarioConst.LOG_INDEX, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return View(employeeSearch);
+            return View(funcionarioSearch);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(FuncionarioSearch employeeSearch)
+        public async Task<IActionResult> Index(FuncionarioSearch funcionarioSearch)
         {
-            IEnumerable<Funcionario> employees;
+            IEnumerable<Funcionario> funcionarios;
 
-            if (employeeSearch.HasFilter)
+            if (funcionarioSearch.HasFilter)
             {
-                employees = await _employeeService.GetByTakeLastRelatedAsync(employeeSearch.TakeLast);
+                funcionarios = await _funcionarioService.GetByTakeLastRelatedAsync(funcionarioSearch.TakeLast);
             }
             else
             {
-                FuncionarioFilter filter = _mapper.Map<FuncionarioFilterViewModel, FuncionarioFilter>(employeeSearch?.Filter);
-                employees = await _employeeService.GetByFilterRelatedAsync(filter);
+                FuncionarioFilter filter = _mapper.Map<FuncionarioFilterViewModel, FuncionarioFilter>(funcionarioSearch?.Filter);
+                funcionarios = await _funcionarioService.GetByFilterRelatedAsync(filter);
             }
 
-            List<FuncionarioViewModel> demployeeViewModels = _mapper.Map<IEnumerable<Funcionario>, IEnumerable<FuncionarioViewModel>>(employees).ToList();
+            List<FuncionarioViewModel> funcionarioViewModels = _mapper.Map<IEnumerable<Funcionario>, IEnumerable<FuncionarioViewModel>>(funcionarios).ToList();
 
-            employeeSearch.Itens = demployeeViewModels;
+            funcionarioSearch.Itens = funcionarioViewModels;
 
-            TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(employeeSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
+            TempData[DefaultConst.TEMPDATA_FILTERSTATE] = JsonSerializer.Serialize(funcionarioSearch, new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
 
             _logger.LogInformation(FuncionarioConst.LOG_INDEX, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return View(employeeSearch);
+            return View(funcionarioSearch);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -116,19 +116,19 @@ namespace RecrutaPlus.Web.Controllers
                 return NotFound();
             }
 
-            Funcionario employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (employee == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
             //AutoMapper
-            var employeeViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(employee);
+            var funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
 
             _logger.LogInformation(FuncionarioConst.LOG_DETAILS, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return View(employeeViewModel);
+            return View(funcionarioViewModel);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -138,37 +138,37 @@ namespace RecrutaPlus.Web.Controllers
                 return NotFound();
             }
 
-            Funcionario employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (employee == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
             //AutoMapperc
-            var employeeViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(employee);
+            var funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
 
             _logger.LogInformation(FuncionarioConst.LOG_EDIT, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return View(employeeViewModel);
+            return View(funcionarioViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, FuncionarioViewModel employeeViewModel)
+        public async Task<IActionResult> Edit(int id, FuncionarioViewModel funcionarioViewModel)
         {
-            if (id != employeeViewModel.FuncionarioId)
+            if (id != funcionarioViewModel.FuncionarioId)
             {
                 return NotFound();
             }
 
             //AutoMapper
-            var employee = _mapper.Map<FuncionarioViewModel, Funcionario>(employeeViewModel);
+            var funcionario = _mapper.Map<FuncionarioViewModel, Funcionario>(funcionarioViewModel);
 
-            employee.Edicao = DateTime.Now;
-            employee.EditadoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
+            funcionario.Edicao = DateTime.Now;
+            funcionario.EditadoPor = User.Identity.Name ?? DefaultConst.USER_ANONYMOUS;
 
-            ServiceResult serviceResult = _employeeService.Update(employee);
+            ServiceResult serviceResult = _funcionarioService.Update(funcionario);
 
             //Validation
             if (serviceResult.HasErrors)
@@ -176,16 +176,16 @@ namespace RecrutaPlus.Web.Controllers
                 //ViewBag.SelectListColaboradores = await Task.Run(() => SelectListColaboradores());
 
                 serviceResult.ToModelStateDictionary(ModelState);
-                return View(employeeViewModel);
+                return View(funcionarioViewModel);
             }
 
-            _ = await _employeeService.SaveChangesAsync();
+            _ = await _funcionarioService.SaveChangesAsync();
 
             SuccessMessage = DefaultResource.MSG_UPDATE_SUCCESSFULLY;
 
             _logger.LogInformation(FuncionarioConst.LOG_EDIT, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return RedirectToAction(nameof(Index), new { id = employee?.FuncionarioId });
+            return RedirectToAction(nameof(Index), new { id = funcionario?.FuncionarioId });
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -195,36 +195,36 @@ namespace RecrutaPlus.Web.Controllers
                 return NotFound();
             }
 
-            Funcionario employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
+            Funcionario funcionario = await _funcionarioService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
-            if (employee == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
             //AutoMapper
-            var employeeViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(employee);
+            var funcionarioViewModel = _mapper.Map<Funcionario, FuncionarioViewModel>(funcionario);
 
             _logger.LogInformation(FuncionarioConst.LOG_DELETE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return View(employeeViewModel);
+            return View(funcionarioViewModel);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var employee = await _employeeService.FindByIdAsync(id);
-            ServiceResult serviceResult = _employeeService.Delete(employee);
+            var funcionario = await _funcionarioService.FindByIdAsync(id);
+            ServiceResult serviceResult = _funcionarioService.Delete(funcionario);
 
             //Validation
             if (serviceResult.HasErrors)
             {
                 serviceResult.ToModelStateDictionary(ModelState);
                 ErrorMessage = serviceResult.ToHtml();
-                return RedirectToAction(nameof(Delete), new { id = employee?.FuncionarioId });
+                return RedirectToAction(nameof(Delete), new { id = funcionario?.FuncionarioId });
             }
 
-            _ = await _employeeService.SaveChangesAsync();
+            _ = await _funcionarioService.SaveChangesAsync();
 
             SuccessMessage = DefaultResource.MSG_SAVED_SUCCESSFULLY;
 
