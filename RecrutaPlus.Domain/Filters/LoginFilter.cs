@@ -10,14 +10,14 @@ namespace RecrutaPlus.Application.ViewModels
 {
     public class LoginFilter
     {
-        public int? usuarioId { get; set; }
+        public int? UsuarioId { get; set; }
 
-        public int? funcionarioId { get; set; }
+        public int? FuncionarioId { get; set; }
 
 
-        public string username { get; set; }
+        public string Username { get; set; }
 
-        public string password { get; set; }
+        public string Password { get; set; }
 
         //Default
         public DateTime? Cadastro { get; set; }

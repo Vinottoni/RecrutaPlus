@@ -11,13 +11,13 @@ namespace RecrutaPlus.Application.ViewModels
     public class LoginViewModel
     {
         [Display(Name = "Código")]
-        public int usuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
         [Display(Name = "Email")]
-        public string username { get; set; }
+        public string Username { get; set; }
 
         [Display(Name = "Password")]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         //Default
         public DateTime Cadastro { get; set; }

@@ -2,11 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using RecrutaPlus.Domain.Entities;
 using RecrutaPlus.Infra.Data.Mappings.DataTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RecrutaPlus.Infra.Data.Mappings.MySQL
 {
@@ -18,23 +13,23 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.ToTable("cargos");
 
             //PK
-            builder.HasKey(k => k.cargoId);
+            builder.HasKey(k => k.CargoId);
 
             //Property
-            builder.Property(e => e.cargoId)
+            builder.Property(e => e.CargoId)
                 .HasColumnName("cargoId")
                 .HasColumnType(MySQLDataTypes.INT());
 
-            builder.Property(e => e.nome)
+            builder.Property(e => e.Nome)
                 .HasColumnName("nome")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.descricao)
+            builder.Property(e => e.Descricao)
                 .HasColumnName("descricao")
                 .HasColumnType(MySQLDataTypes.TEXT());
 
-            builder.Property(e => e.salario)
+            builder.Property(e => e.Salario)
                 .HasColumnName("salario")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.DECIMAL());
@@ -72,7 +67,7 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.HasAlternateKey(a => a.GuidStamp);
 
             //Index
-            builder.HasIndex(d => d.descricao);
+            //builder.HasIndex(d => d.Descricao);
 
         }
     }

@@ -30,10 +30,10 @@ namespace RecrutaPlus.Web.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
             Employee employee = await _employeeService.GetByIdRelatedAsync(id.GetValueOrDefault(-1));
 
@@ -94,7 +94,7 @@ namespace RecrutaPlus.Web.Controllers
 
             _logger.LogInformation(EmployeeConst.LOG_CREATE, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return RedirectToAction(nameof(Index), new { id = employee?.funcionarioId });
+            return RedirectToAction(nameof(Index), new { id = employee?.FuncionarioId });
         }
 
         #region SelectList

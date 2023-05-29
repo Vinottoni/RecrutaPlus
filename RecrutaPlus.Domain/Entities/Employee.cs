@@ -6,33 +6,35 @@ namespace RecrutaPlus.Domain.Entities
 {
     public class Employee : Entity
     {
-        public int funcionarioId { get; set; }
+        //public int EmployeeId { get; set; }
 
-        public int cargoId { get; set; }
+        public int FuncionarioId { get; set; }
 
-        public string nome { get; set; }
+        public int CargoId { get; set; }
 
-        public string rg { get; set; }
+        public string Nome { get; set; }
 
-        public string cpf { get; set; }
+        public string RG { get; set; }
 
-        public string email { get; set; }
+        public string CPF { get; set; }
 
-        public string telefone { get; set; }
+        public string Email { get; set; }
 
-        public DateOnly dataNascimento { get; set; }
+        public string Telefone { get; set; }
 
-        public string genero { get; set; }
+        public DateOnly DataNascimento { get; set; }
 
-        public string cep { get; set; }
+        public string Genero { get; set; }
 
-        public string endereco { get; set; }
+        public string CEP { get; set; }
 
-        public string bairro { get; set; }
+        public string Endereco { get; set; }
 
-        public string educacao { get; set; }
+        public string Bairro { get; set; }
 
-        public string status { get; set; }
+        public string Educacao { get; set; }
+
+        public string Status { get; set; }
 
 
         //Default

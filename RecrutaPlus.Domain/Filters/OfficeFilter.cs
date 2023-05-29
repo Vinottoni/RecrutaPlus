@@ -10,13 +10,13 @@ namespace RecrutaPlus.Application.ViewModels
 {
     public class OfficeFilter
     {
-        public int? cargoId { get; set; }
+        public int? CargoId { get; set; }
 
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
 
-        public decimal? salario { get; set; }
+        public decimal? Salario { get; set; }
 
         //Default
         public DateTime? Cadastro { get; set; }

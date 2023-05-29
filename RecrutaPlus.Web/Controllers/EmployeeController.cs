@@ -157,7 +157,7 @@ namespace RecrutaPlus.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, EmployeeViewModel employeeViewModel)
         {
-            if (id != employeeViewModel.funcionarioId)
+            if (id != employeeViewModel.FuncionarioId)
             {
                 return NotFound();
             }
@@ -185,7 +185,7 @@ namespace RecrutaPlus.Web.Controllers
 
             _logger.LogInformation(EmployeeConst.LOG_EDIT, User.Identity.Name ?? DefaultConst.USER_ANONYMOUS, DateTime.Now);
 
-            return RedirectToAction(nameof(Index), new { id = employee?.funcionarioId });
+            return RedirectToAction(nameof(Index), new { id = employee?.FuncionarioId });
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -221,7 +221,7 @@ namespace RecrutaPlus.Web.Controllers
             {
                 serviceResult.ToModelStateDictionary(ModelState);
                 ErrorMessage = serviceResult.ToHtml();
-                return RedirectToAction(nameof(Delete), new { id = employee?.funcionarioId });
+                return RedirectToAction(nameof(Delete), new { id = employee?.FuncionarioId });
             }
 
             _ = await _employeeService.SaveChangesAsync();

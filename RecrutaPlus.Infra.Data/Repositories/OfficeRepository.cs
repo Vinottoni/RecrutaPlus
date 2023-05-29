@@ -20,7 +20,7 @@ namespace RecrutaPlus.Infra.Data.Repositories
         }
         public async Task<Office> GetByIdAsync(int id)
         {
-            return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().SingleOrDefaultAsync(s => s.cargoId == id);
+            return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().SingleOrDefaultAsync(s => s.CargoId == id);
         }
 
         //public async Task<Office> GetByIdRelatedAsync(int id)
@@ -34,10 +34,9 @@ namespace RecrutaPlus.Infra.Data.Repositories
         {
             var _query = _dbContext.Offices.AsNoTrackingWithIdentityResolution();
 
-            if (filter?.cargoId != null) { _query = _query.Where(w => w.cargoId == filter.cargoId.GetValueOrDefault()); }
-            if (filter?.nome != null) { _query = _query.Where(w => w.nome == filter.nome); }
-            if (filter?.descricao != null) { _query = _query.Where(w => w.descricao == filter.descricao); }
-            if (filter?.salario != null) { _query = _query.Where(w => w.salario == filter.salario); }
+            if (filter?.CargoId != null) { _query = _query.Where(w => w.CargoId == filter.CargoId.GetValueOrDefault()); }
+            if (filter?.Nome != null) { _query = _query.Where(w => w.Nome == filter.Nome); }
+            if (filter?.Descricao != null) { _query = _query.Where(w => w.Descricao == filter.Descricao); }
 
             return await _query.ToListAsync();
         }
@@ -74,11 +73,11 @@ namespace RecrutaPlus.Infra.Data.Repositories
         {
             if (predicate == null)
             {
-                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().OrderBy(o => o.cargoId).Skip(skip).Take(take).ToListAsync();
+                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().OrderBy(o => o.CargoId).Skip(skip).Take(take).ToListAsync();
             }
             else
             {
-                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().Where(predicate).OrderBy(o => o.cargoId).Skip(skip).Take(take).ToListAsync();
+                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().Where(predicate).OrderBy(o => o.CargoId).Skip(skip).Take(take).ToListAsync();
             }
         }
 
@@ -102,11 +101,11 @@ namespace RecrutaPlus.Infra.Data.Repositories
         {
             if (predicate == null)
             {
-                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().OrderBy(o => o.cargoId).Take(takeLast).ToListAsync();
+                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().OrderBy(o => o.CargoId).Take(takeLast).ToListAsync();
             }
             else
             {
-                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().Where(predicate).OrderBy(o => o.cargoId).Take(takeLast).ToListAsync();
+                return await _dbContext.Offices.AsNoTrackingWithIdentityResolution().Where(predicate).OrderBy(o => o.CargoId).Take(takeLast).ToListAsync();
             }
         }
 

@@ -6,13 +6,15 @@ namespace RecrutaPlus.Domain.Entities
 {
     public class Office : Entity
     {
-        public int cargoId { get; set; }
+        //public int OfficeId { get; set; } // assim já deve funcionar blz blz vou ver aqui testa ai e se nao conseguir depois das  18 vc chama ou amanha blz blz
 
-        public string nome { get; set; }
+        public int CargoId { get; set; }
 
-        public string descricao { get; set; }
+        public string Nome { get; set; }
 
-        public decimal salario { get; set; }
+        public string Descricao { get; set; }
+
+        public decimal Salario { get; set; }
 
 
         //Default

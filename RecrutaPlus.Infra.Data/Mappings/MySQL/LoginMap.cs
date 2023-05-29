@@ -18,19 +18,19 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.ToTable("usuarios");
 
             //PK
-            builder.HasKey(k => k.usuarioId);
+            builder.HasKey(k => k.UsuarioId);
 
             //Property
-            builder.Property(e => e.usuarioId)
+            builder.Property(e => e.UsuarioId)
                 .HasColumnName("usuarioId")
                 .HasColumnType(MySQLDataTypes.INT());
 
-            builder.Property(e => e.username)
+            builder.Property(e => e.Username)
                 .HasColumnName("username")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.password)
+            builder.Property(e => e.Password)
                 .HasColumnName("password")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
@@ -68,12 +68,12 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.HasAlternateKey(a => a.GuidStamp);
 
             //Index
-            builder.HasIndex(d => d.funcionarioId);
+            builder.HasIndex(d => d.FuncionarioId);
 
             //FK
             builder.HasOne(d => d.Employee)
                 .WithMany(p => p.Logins)
-                .HasForeignKey(d => d.funcionarioId);
+                .HasForeignKey(d => d.FuncionarioId);
         }
     }
 }

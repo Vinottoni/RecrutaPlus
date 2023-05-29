@@ -46,7 +46,7 @@ namespace RecrutaPlus.Domain.Services
 
             base.Add(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_ADD, DateTime.Now, entity.GuidStamp, entity.cargoId, entity);
+            _logger.LogInformation(OfficeConst.LOG_TABLE_ADD, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }
@@ -71,7 +71,7 @@ namespace RecrutaPlus.Domain.Services
 
             base.Update(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_UPDATE, DateTime.Now, entity.GuidStamp, entity.cargoId, entity);
+            _logger.LogInformation(OfficeConst.LOG_TABLE_UPDATE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }
@@ -97,7 +97,7 @@ namespace RecrutaPlus.Domain.Services
 
             base.Delete(entity);
 
-            _logger.LogInformation(OfficeConst.LOG_TABLE_REMOVE, DateTime.Now, entity.GuidStamp, entity.cargoId, entity);
+            _logger.LogInformation(OfficeConst.LOG_TABLE_REMOVE, DateTime.Now, entity.GuidStamp, entity.CargoId, entity);
 
             return serviceResult;
         }

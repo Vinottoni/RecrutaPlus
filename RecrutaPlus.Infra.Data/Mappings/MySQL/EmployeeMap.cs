@@ -13,69 +13,69 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.ToTable("funcionarios");
 
             //PK
-            builder.HasKey(k => k.funcionarioId);
+            builder.HasKey(k => k.FuncionarioId); //ajusta aqui tambem
 
             //Property
-            builder.Property(e => e.funcionarioId)
+            builder.Property(e => e.FuncionarioId)
                 .HasColumnName("funcionarioId")
                 .HasColumnType(MySQLDataTypes.INT());
 
-            builder.Property(e => e.nome)
+            builder.Property(e => e.Nome)
                 .HasColumnName("nome")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.cpf)
+            builder.Property(e => e.CPF)
                 .HasColumnName("cpf")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(11));
 
-            builder.Property(e => e.email)
+            builder.Property(e => e.Email)
                 .HasColumnName("email")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.telefone)
+            builder.Property(e => e.Telefone)
                 .HasColumnName("telefone")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(20));
 
-            builder.Property(e => e.dataNascimento)
+            builder.Property(e => e.DataNascimento)
                 .HasColumnName("data_nascimento")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.DATE());
 
-            builder.Property(e => e.endereco)
+            builder.Property(e => e.Endereco)
                 .HasColumnName("endereco")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.rg)
+            builder.Property(e => e.RG)
                 .HasColumnName("rg")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(45));
 
-            builder.Property(e => e.genero)
+            builder.Property(e => e.Genero)
                 .HasColumnName("genero")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.CHAR(2));
 
-            builder.Property(e => e.cep)
+            builder.Property(e => e.CEP)
                 .HasColumnName("cep")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(20));
 
-            builder.Property(e => e.educacao)
+            builder.Property(e => e.Educacao)
                 .HasColumnName("educacao")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.status)
+            builder.Property(e => e.Status)
                 .HasColumnName("status")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
 
-            builder.Property(e => e.bairro)
+            builder.Property(e => e.Bairro)
                 .HasColumnName("bairro")
                 .IsRequired()
                 .HasColumnType(MySQLDataTypes.VARCHAR(255));
@@ -113,12 +113,12 @@ namespace RecrutaPlus.Infra.Data.Mappings.MySQL
             builder.HasAlternateKey(a => a.GuidStamp);
 
             //Index
-            builder.HasIndex(d => d.cargoId);
+            builder.HasIndex(d => d.CargoId);
 
             //FK
             builder.HasOne(d => d.Office)
                 .WithMany(p => p.Employees)
-                .HasForeignKey(d => d.cargoId);
+                .HasForeignKey(d => d.CargoId);
         }
     }
 }
