@@ -8,151 +8,145 @@
 <div class="content-pages text-yellowy">
     <div class="container">
         <div class="page-titles">
-            <h2>
+            <h1 class="ml-0">
                 Register New Employee
-            </h2>
+            </h1>
         </div>
-        <div class="col-sm-12 col-md-12 base-Employee">
-            <div class="container mt-3 ">
-                <div class="text-left">
-                    <small class="text-white">Register</small><br />
-                    <h4>Information</h4>
-                </div>
-                <hr class="hr-color" />
-            </div>
-        </div>
-    </div>
-    <div class="page-section">
 
-        <div class="card-deck-xl">
+        <div class="page-section">
 
-            <div class="card card-fluid">
+            <div class="card-deck-xl">
 
-                <div class="card-body">
+                <div class="card-custom card-fluid">
 
-                    <form asp-action="Create">
+                    <div class="card-body card-body-custom card-background">
 
-                        <fieldset>
-                            <div class="form-row">
+                        <form asp-action="Create" class="col-12 col-sm-12 col-md-12">
 
-                                <div class="form-group col-sm-12 col-md-4">
-                                    <label asp-for="Nome"></label><sup class="text-danger">*</sup>
-                                    <input asp-for="Nome" class="form-control" placeholder="" required min="0">
-                                    <span asp-validation-for="Nome" class="form-text text-danger small"></span>
-                                </div>
+                            <fieldset>
+                                <div class="form-row col-12 col-sm-12 col-md-12 flex-custom container">
 
-                                <div class="form-group col-sm-12 col-md-4">
-                                    <label asp-for="Email"></label><sup class="text-danger">*</sup>
-                                    <input asp-for="Email" class="form-control" placeholder="" required min="0">
-                                    <span asp-validation-for="Email" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="col-sm-12 col-md-12"></div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="Telefone"></label>
-                                    <input asp-for="Telefone" class="form-control" placeholder="">
-                                    <span asp-validation-for="Telefone" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="CPF"></label>
-                                    <input asp-for="CPF" class="form-control" placeholder="">
-                                    <span asp-validation-for="CPF" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="RG"></label>
-                                    <input asp-for="RG" class="form-control" placeholder="">
-                                    <span asp-validation-for="RG" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="DataNascimento"></label>
-                                    <input asp-for="DataNascimento" class="form-control" placeholder="">
-                                    <span asp-validation-for="DataNascimento" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="Genero"></label>
-                                    <input asp-for="Genero" class="form-control" placeholder="">
-                                    <span asp-validation-for="Genero" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="Educacao"></label>
-                                    <input asp-for="Educacao" class="form-control" placeholder="">
-                                    <span asp-validation-for="Educacao" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="Endereco"></label>
-                                    <input asp-for="Endereco" class="form-control" placeholder="">
-                                    <span asp-validation-for="Endereco" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="CEP"></label>
-                                    <input asp-for="CEP" class="form-control" placeholder="">
-                                    <span asp-validation-for="CEP" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="Bairro"></label>
-                                    <input asp-for="Bairro" class="form-control" placeholder="">
-                                    <span asp-validation-for="Bairro" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="RG"></label>
-                                    <input asp-for="RG" class="form-control" placeholder="">
-                                    <span asp-validation-for="RG" class="form-text text-danger small"></span>
-                                </div>
-
-                                @*<div class="col-12"></div>
-
-                                <div class="form-group col-sm-12 col-md-4">
-                                    <div class="mt-1">
-                                        <label asp-for="Ativo" class="control-label"></label>
-                                        <label class="switcher-control switcher-control-primary switcher-control-lg">
-                                            <input asp-for="Ativo" type="checkbox" class="switcher-input" checked>
-
-                                            <span class="switcher-indicator"></span>
-                                            <span class="switcher-label-on">@DefaultResource.MSG_SIM</span>
-                                            <span class="switcher-label-off">@DefaultResource.MSG_NAO</span>
-
-                                        </label>
+                                    <div class="col-12 col-sm-12 col-md-12">
+                                        <div class="text-left">
+                                            <small class="text-white">Register</small><br />
+                                            <h2>Information</h2>
+                                        </div>
+                                        <hr class="hr-color" />
                                     </div>
-                                </div>*@
+                                    <div class="form-row col-12 col-sm-12 col-md-12 flex-custom gap-register">
+                                        
+                                        <div class="form-row col-12 col-sm-12 col-md-12 flex-custom">
+                                            <div class="form-group col-12 col-sm-12 col-md-5">
+                                                <label asp-for="Nome" class="label-custom"></label>
+                                                <input asp-for="Nome" class="form-control input-color" placeholder="Enter your Name" required min="0">
+                                                <span asp-validation-for="Nome" class="form-text text-danger small"></span>
+                                            </div>
 
-                                <hr class="hr-color" />
-                                <div class="container mt-3 ">
-                                    <div class="text-left">
-                                        <small class="text-white">Register</small><br />
-                                        <h4>Information</h4>
+                                            <div class="form-group col-12 col-sm-12 col-md-4">
+                                                <label asp-for="Email" class="label-custom"></label>@*<sup class="text-danger">*</sup>*@
+                                                <input asp-for="Email" class="form-control input-color" placeholder="Enter your Email" required min="0">
+                                                <span asp-validation-for="Email" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-2">
+                                                <label asp-for="Telefone" class="label-custom"></label>
+                                                <input asp-for="Telefone" class="form-control input-color" placeholder="Enter your Number">
+                                                <span asp-validation-for="Telefone" class="form-text text-danger small"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row col-12 col-sm-12 col-md-12 flex-custom">
+                                            <div class="form-group col-12 col-sm-12 col-md-3">
+                                                <label asp-for="CPF" class="label-custom"></label>
+                                                <input asp-for="CPF" class="form-control input-color" placeholder="Enter your CPF">
+                                                <span asp-validation-for="CPF" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-3">
+                                                <label asp-for="RG" class="label-custom"></label>
+                                                <input asp-for="RG" class="form-control input-color" placeholder="Enter your RG">
+                                                <span asp-validation-for="RG" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-2">
+                                                <label asp-for="DataNascimento" class="label-custom"></label>
+                                                <input asp-for="DataNascimento" class="form-control input-color" placeholder="Enter your Date of Birthday">
+                                                <span asp-validation-for="DataNascimento" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-3">
+                                                <label asp-for="Genero" class="label-custom"></label>
+                                                <input asp-for="Genero" class="form-control input-color" placeholder="Select">
+                                                <span asp-validation-for="Genero" class="form-text text-danger small"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row col-12 col-sm-12 col-md-12 flex-custom">
+                                            <div class="form-group col-12 col-sm-12 col-md-5">
+                                                <label asp-for="Educacao" class="label-custom"></label>
+                                                <input asp-for="Educacao" class="form-control input-color" placeholder="Select">
+                                                <span asp-validation-for="Educacao" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-6">
+                                                <label asp-for="Endereco" class="label-custom"></label>
+                                                <input asp-for="Endereco" class="form-control input-color" placeholder="Enter your Adress">
+                                                <span asp-validation-for="Endereco" class="form-text text-danger small"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row col-12 col-sm-12 col-md-12 flex-custom">
+                                            <div class="form-group col-12 col-sm-12 col-md-3">
+                                                <label asp-for="CEP" class="label-custom"></label>
+                                                <input asp-for="CEP" class="form-control input-color" placeholder="Enter your CEP">
+                                                <span asp-validation-for="CEP" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-5">
+                                                <label asp-for="Bairro" class="label-custom"></label>
+                                                <input asp-for="Bairro" class="form-control input-color" placeholder="Enter your Neighborhood">
+                                                <span asp-validation-for="Bairro" class="form-text text-danger small"></span>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12 col-md-3">
+                                                <label asp-for="RG" class="label-custom"></label>
+                                                <input asp-for="RG" class="form-control input-color" placeholder="Select">
+                                                <span asp-validation-for="RG" class="form-text text-danger small"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="col-12 col-sm-12 col-md-12">
+                                        <hr class="hr-color" />
+                                        <div class="text-left">
+                                            <small class="text-white">Register</small><br />
+                                            <h2>Salary</h2>
+                                        </div>
+                                        <hr class="hr-color" />
+                                    </div>
+
+                                    <div class="form-row col-12 col-sm-12 col-md-12 flex-custom justify-content-center gap-register">
+                                        <div class="form-group col-12 col-sm-12 col-md-4">
+                                            <label asp-for="RG" class="label-custom"></label>
+                                            <input asp-for="RG" class="form-control input-color" placeholder="Select">
+                                            <span asp-validation-for="RG" class="form-text text-danger small"></span>
+                                        </div>
+
+                                        <div class="form-group col-12 col-sm-12 col-md-4">
+                                            <label asp-for="RG" class="label-custom"></label>
+                                            <input asp-for="RG" class="form-control input-color" placeholder="Value">
+                                            <span asp-validation-for="RG" class="form-text text-danger small"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <hr class="hr-color" />
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="RG"></label>
-                                    <input asp-for="RG" class="form-control" placeholder="">
-                                    <span asp-validation-for="RG" class="form-text text-danger small"></span>
-                                </div>
-
-                                <div class="form-group col-sm-12 col-md-2">
-                                    <label asp-for="RG"></label>
-                                    <input asp-for="RG" class="form-control" placeholder="">
-                                    <span asp-validation-for="RG" class="form-text text-danger small"></span>
-                                </div>
+                            </fieldset>
+                            <div class="form-row col-12 col-sm-12 col-md-12 flex-custom justify-content-center gap-register-salary">
+                                <a class="btn btn-secondary btn-lg btn-back" asp-action="Index" asp-controller="dashboard" asp-route-state="true">Return</a>
+                                <a class="btn btn-primary btn-lg btn-register" asp-action="Create" asp-controller="Create" type="submit">Register</a>
                             </div>
-                        </fieldset>
-
-                        <hr class="mb-4">
-                        <a class="btn btn-primary btn-lg" asp-action="Create" asp-controller="Create" type="submit">Salvar</a>
-                        <a class="btn btn-secondary btn-lg" asp-action="Index" asp-route-state="true">Voltar</a>
-
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
